@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8">
+        <title>RSC mapping project</title>
+	<link rel="Stylesheet" href="css/ui.slider.extras.css" type="text/css" />
+	<style type="text/css">
+        label { display: none; }
+        .ui-slider { margin: 4em; }
+        #map { clear: both; margin: 6em auto 2em; width: 400px; }
+	</style>
+	    <link href="jquery-ui/css/smoothness/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+        <script src="js/raphael-min.js"></script>
+        <script src="jquery-ui/js/jquery-1.8.2.js"></script>
+        <script src="jquery-ui/js/jquery-ui-1.9.1.custom.min.js"></script>
+	    <script src="js/selectToUISlider.jQuery.js"></script>
+        <script>
+            var RSC = RSC || {};
+            RSC.Locations = {
+                'RST': { x:345, y:75 },
+                'Courtyard': { x:75, y:300 },
+                'Swan': { x:318, y:118 },
+                'Swan Room': { x:292, y:107 },
+                'Paccar': { x:320, y:50 }
+            };
+            RSC.Events = {
+                'Of All the People in All the World, Stan’s Café': { location: 'Paccar', start: '2012-04-14', end: '2012-07-21' },
+                'Twelfth Night': { location: 'RST', start: '2012-03-08', end: '2012-05-08' },
+                'Much Ado About Nothing': { location: 'Courtyard', start: '2012-05-08', end: '2012-08-08' },
+            };
+
+		$(function(){
+			$('select#date').selectToUISlider({
+                sliderOptions: {
+                    //animate: true,
+                    change: function(event, ui) {
+                        var d = $('#date').val(),
+                            new_date = '2012-' + d.substring(3, 5) + '-' + d.substring(0, 2);
+                        $.each(RSC.Events, function(name, data) {
+                            var c = RSC.Locations[data.location].circle;
+                            c.attr({ title: name });
+                            if (data.start <= new_date && new_date <= data.end) {
+                                c.animate({ opacity: 1 }, 200);
+                            } else {
+                                c.animate({ opacity: 0 }, 200);
+                            }
+                        });
+                    }
+                }
+			});//.hide();
+
+            var paper = Raphael("map", 400, 360);
+            paper.image('i/stratford.png', 0, 0, 400, 360);
+            $.each(RSC.Locations, function(i, v) {
+                var circle = paper.circle(v.x, v.y, 10).attr({
+                    opacity: 0,
+                    fill: "#f00",
+                    stroke: "#f00"
+                });
+                v.circle = circle;
+            });
+
+            var arr = $('select#date option');
+            var i = 0, l = arr.length;
+            (function iterator() {
+                $('select#date').val(arr[i].value).change();
+                if(++i<l) {
+                    setTimeout(iterator, 20);
+                }
+            })();
+		});
+	</script>
+    </head>
+    <body>
+			<label for="date">From:</label>
+			<select name="date" id="date">
+				<optgroup label="March">
+					<option value="01/03">1st March</option> <option value="02/03">2nd March</option> <option value="03/03">3rd March</option> <option value="04/03">4th March</option> <option value="05/03">5th March</option>
+					<option value="06/03">6th March</option> <option value="07/03">7th March</option> <option value="08/03">8th March</option> <option value="09/03">9th March</option> <option value="10/03">10th March</option>
+					<option value="11/03">11th March</option> <option value="12/03">12th March</option> <option value="13/03">13th March</option> <option value="14/03">14th March</option> <option value="15/03">15th March</option>
+					<option value="16/03">16th March</option> <option value="17/03">17th March</option> <option value="18/03">18th March</option> <option value="19/03">19th March</option> <option value="20/03">20th March</option>
+					<option value="21/03">21st March</option> <option value="22/03">22nd March</option> <option value="23/03">23rd March</option> <option value="24/03">24th March</option> <option value="25/03">25th March</option>
+					<option value="26/03">26th March</option> <option value="27/03">27th March</option> <option value="28/03">28th March</option> <option value="29/03">29th March</option> <option value="30/03">30th March</option>
+                    <option value="31/03">31st March</option>
+				</optgroup>
+				<optgroup label="April">
+					<option value="01/04">1st April</option> <option value="02/04">2nd April</option> <option value="03/04">3rd April</option> <option value="04/04">4th April</option> <option value="05/04">5th April</option>
+					<option value="06/04">6th April</option> <option value="07/04">7th April</option> <option value="08/04">8th April</option> <option value="09/04">9th April</option> <option value="10/04">10th April</option>
+					<option value="11/04">11th April</option> <option value="12/04">12th April</option> <option value="13/04">13th April</option> <option value="14/04">14th April</option> <option value="15/04">15th April</option>
+					<option value="16/04">16th April</option> <option value="17/04">17th April</option> <option value="18/04">18th April</option> <option value="19/04">19th April</option> <option value="20/04">20th April</option>
+					<option value="21/04">21st April</option> <option value="22/04">22nd April</option> <option value="23/04">23rd April</option> <option value="24/04">24th April</option> <option value="25/04">25th April</option>
+					<option value="26/04">26th April</option> <option value="27/04">27th April</option> <option value="28/04">28th April</option> <option value="29/04">29th April</option> <option value="30/04">30th April</option>
+				</optgroup>
+				<optgroup label="May">
+					<option value="01/05">1st May</option> <option value="02/05">2nd May</option> <option value="03/05">3rd May</option> <option value="04/05">4th May</option> <option value="05/05">5th May</option>
+					<option value="06/05">6th May</option> <option value="07/05">7th May</option> <option value="08/05">8th May</option> <option value="09/05">9th May</option> <option value="10/05">10th May</option>
+					<option value="11/05">11th May</option> <option value="12/05">12th May</option> <option value="13/05">13th May</option> <option value="14/05">14th May</option> <option value="15/05">15th May</option>
+					<option value="16/05">16th May</option> <option value="17/05">17th May</option> <option value="18/05">18th May</option> <option value="19/05">19th May</option> <option value="20/05">20th May</option>
+					<option value="21/05">21st May</option> <option value="22/05">22nd May</option> <option value="23/05">23rd May</option> <option value="24/05">24th May</option> <option value="25/05">25th May</option>
+					<option value="26/05">26th May</option> <option value="27/05">27th May</option> <option value="28/05">28th May</option> <option value="29/05">29th May</option> <option value="30/05">30th May</option>
+                    <option value="31/05">31st May</option>
+				</optgroup>
+				<optgroup label="June">
+					<option value="01/06">1st June</option> <option value="02/06">2nd June</option> <option value="03/06">3rd June</option> <option value="04/06">4th June</option> <option value="05/06">5th June</option>
+					<option value="06/06">6th June</option> <option value="07/06">7th June</option> <option value="08/06">8th June</option> <option value="09/06">9th June</option> <option value="10/06">10th June</option>
+					<option value="11/06">11th June</option> <option value="12/06">12th June</option> <option value="13/06">13th June</option> <option value="14/06">14th June</option> <option value="15/06">15th June</option>
+					<option value="16/06">16th June</option> <option value="17/06">17th June</option> <option value="18/06">18th June</option> <option value="19/06">19th June</option> <option value="20/06">20th June</option>
+					<option value="21/06">21st June</option> <option value="22/06">22nd June</option> <option value="23/06">23rd June</option> <option value="24/06">24th June</option> <option value="25/06">25th June</option>
+					<option value="26/06">26th June</option> <option value="27/06">27th June</option> <option value="28/06">28th June</option> <option value="29/06">29th June</option> <option value="30/06">30th June</option>
+				</optgroup>
+				<optgroup label="July">
+					<option value="01/07">1st July</option> <option value="02/07">2nd July</option> <option value="03/07">3rd July</option> <option value="04/07">4th July</option> <option value="05/07">5th July</option>
+					<option value="06/07">6th July</option> <option value="07/07">7th July</option> <option value="08/07">8th July</option> <option value="09/07">9th July</option> <option value="10/07">10th July</option>
+					<option value="11/07">11th July</option> <option value="12/07">12th July</option> <option value="13/07">13th July</option> <option value="14/07">14th July</option> <option value="15/07">15th July</option>
+					<option value="16/07">16th July</option> <option value="17/07">17th July</option> <option value="18/07">18th July</option> <option value="19/07">19th July</option> <option value="20/07">20th July</option>
+					<option value="21/07">21st July</option> <option value="22/07">22nd July</option> <option value="23/07">23rd July</option> <option value="24/07">24th July</option> <option value="25/07">25th July</option>
+					<option value="26/07">26th July</option> <option value="27/07">27th July</option> <option value="28/07">28th July</option> <option value="29/07">29th July</option> <option value="30/07">30th July</option>
+                    <option value="31/07">31st July</option>
+				</optgroup>
+                <optgroup label="August">
+					<option value="01/08">1st August</option> <option value="02/08">2nd August</option> <option value="03/08">3rd August</option> <option value="04/08">4th August</option> <option value="05/08">5th August</option>
+					<option value="06/08">6th August</option> <option value="07/08">7th August</option> <option value="08/08">8th August</option> <option value="09/08">9th August</option> <option value="10/08">10th August</option>
+					<option value="11/08">11th August</option> <option value="12/08">12th August</option> <option value="13/08">13th August</option> <option value="14/08">14th August</option> <option value="15/08">15th August</option>
+					<option value="16/08">16th August</option> <option value="17/08">17th August</option> <option value="18/08">18th August</option> <option value="19/08">19th August</option> <option value="20/08">20th August</option>
+					<option value="21/08">21st August</option> <option value="22/08">22nd August</option> <option value="23/08">23rd August</option> <option value="24/08">24th August</option> <option value="25/08">25th August</option>
+					<option value="26/08">26th August</option> <option value="27/08">27th August</option> <option value="28/08">28th August</option> <option value="29/08">29th August</option> <option value="30/08">30th August</option>
+                    <option value="31/08">31st August</option>
+				</optgroup>
+                <optgroup label="September">
+					<option value="01/09">1st&nbsp;September</option> <option value="02/09">2nd&nbsp;September</option> <option value="03/09">3rd&nbsp;September</option> <option value="04/09">4th&nbsp;September</option> <option value="05/09">5th&nbsp;September</option>
+					<option value="06/09">6th&nbsp;September</option> <option value="07/09">7th&nbsp;September</option> <option value="08/09">8th&nbsp;September</option> <option value="09/09">9th&nbsp;September</option> <option value="10/09">10th&nbsp;September</option>
+					<option value="11/09">11th&nbsp;September</option> <option value="12/09">12th&nbsp;September</option> <option value="13/09">13th&nbsp;September</option> <option value="14/09">14th&nbsp;September</option> <option value="15/09">15th&nbsp;September</option>
+					<option value="16/09">16th&nbsp;September</option> <option value="17/09">17th&nbsp;September</option> <option value="18/09">18th&nbsp;September</option> <option value="19/09">19th&nbsp;September</option> <option value="20/09">20th&nbsp;September</option>
+					<option value="21/09">21st&nbsp;September</option> <option value="22/09">22nd&nbsp;September</option> <option value="23/09">23rd&nbsp;September</option> <option value="24/09">24th&nbsp;September</option> <option value="25/09">25th&nbsp;September</option>
+					<option value="26/09">26th&nbsp;September</option> <option value="27/09">27th&nbsp;September</option> <option value="28/09">28th&nbsp;September</option> <option value="29/09">29th&nbsp;September</option> <option value="30/09">30th&nbsp;September</option>
+				</optgroup>
+                <optgroup label="October">
+					<option value="01/10">1st October</option> <option value="02/10">2nd October</option> <option value="03/10">3rd October</option> <option value="04/10">4th October</option> <option value="05/10">5th October</option>
+					<option value="06/10">6th October</option> <option value="07/10">7th October</option> <option value="08/10">8th October</option> <option value="09/10">9th October</option> <option value="10/10">10th October</option>
+					<option value="11/10">11th October</option> <option value="12/10">12th October</option> <option value="13/10">13th October</option> <option value="14/10">14th October</option> <option value="15/10">15th October</option>
+					<option value="16/10">16th October</option> <option value="17/10">17th October</option> <option value="18/10">18th October</option> <option value="19/10">19th October</option> <option value="20/10">20th October</option>
+					<option value="21/10">21st October</option> <option value="22/10">22nd October</option> <option value="23/10">23rd October</option> <option value="24/10">24th October</option> <option value="25/10">25th October</option>
+					<option value="26/10">26th October</option> <option value="27/10">27th October</option> <option value="28/10">28th October</option> <option value="29/10">29th October</option> <option value="30/10">30th October</option>
+                    <option value="31/10">31st October</option>
+				</optgroup>
+			</select>
+
+            <div id="map"></div>
+</body>
+</html>

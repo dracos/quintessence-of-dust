@@ -1,0 +1,78 @@
+parameters: arrow-end, clip-rect, cursor, cx, cy, fill, fill-opacity, font, font-family/size/weight, height, href
+            opacity, path, r, rx, ry, src, stroke, stroke-dasharray, stroke-linecap, stroke-linejoin, stroke-miterlimit
+            stroke-opacity, stroke-width, target, text, text-anchor, title, transform, width, x, y
+pathstrings?
+colours: names, #000, #000000, rgb(), rgba(), hsb(), hsba(), hsl(), hsla()
+
+Raphael(ID, w, h, f)
+       (x, y, w, h, f)
+       ([ ID,w,h / x,y,w,h, {...paper.add...} ], f)
+       (f)
+    .angle(x1,y1 x2,y2 [x3,y3])
+    .animation(params, ms, easing, callback) => pass to .animate, .animateWith
+    .bezierBBox
+    .color(clr) => { r g b hex error h s v l }
+    .deg() => rad2deg
+    .easing_formulas - linear, < > <> backIn backOut elastic bounce
+    .el.FOO = function() { this.attr(...); };
+    .st.FOO = function forEAch ...
+    .fn.FOO = { arrow: function, star: function };
+    .format("{0}{1}")
+    .fullfill(token, json);
+    .getColor(?)
+    .getRGB(...) => { r g b hex error }
+    .registerFont(font)
+    .snapTo(values, value, tolerance)
+Animation.delay/repeat
+
+Element
+    .animate(finalattrs, time, easing, end_callback / animation)
+    .animateWith(el, anim, ditto / el, anim, animation)
+    .attr(name, value / {}, name, [])
+    .unclick/click/dblclick/undblclick/hover/mousedown/move/out/over/up/unhover/un*
+    .drag/onDragOver/undrag
+    .clone
+    .data(key[value]) .removeData
+    .getBBox,
+    path stuff
+    .glow
+    hide/show
+    insertAfter/Before, isPointInside, matrix?
+    .toBack/Front
+    next/node/paper
+    .pause(anim)/resume(anim)/stop(anim)
+    .remove
+    .raphael/paper/id
+    .setTime(anim, value)
+    .status(anim, value)
+    .transform('' t100,100r30,100,100s2,2,100,100r45s.15)
+Paper
+    .foreach()
+    .getById()
+    .getElement(s)ByPoint()
+    .getFont()
+    .add(json)
+    .image(src, x,y, w,h)
+    .path(str) - M moveto, Z, L lineto, H horizontal lineto, V, C curveto, S smooth curveto, Q, T, A, R
+    .bottom
+    .circle(x,y,r)
+    .ellipse(x,y,rx,ry)
+    .clear
+    .customAttributes.FOO = function(N) { return {attr}; };
+    .print(x, y, string, font, size, origin, spacing)
+    .text(x, y, text)
+    .rect(x,y,w,h,(r))
+    .remove
+    .renderfix()?
+    .safari()?
+    .set() - create empty set
+    .setSize
+    .setStart()/setFinish() - get set of stuff
+    .setViewBox(x,y,w,h,fit)
+
+Set - .clear, .exclude(el), .forEach(), pop(), push(), splice(),
+
+eve(name, scope, ...)
+eve.on(name, f)
+eve.once(name, f)
+.stop/unbind/off(name, f)
