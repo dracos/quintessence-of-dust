@@ -7,7 +7,13 @@
 	<style type="text/css">
         label { display: none; }
         .ui-slider { margin: 4em; }
-        #map { clear: both; margin: 6em auto 2em; width: 400px; }
+        #map {
+            clear: both;
+            margin: 6em auto 2em;
+            width: 400px;
+            padding: 2px 2px 0;
+            border: solid 1px #ccc;
+        }
 	</style>
 	    <link href="jquery-ui/css/smoothness/jquery-ui-1.9.1.custom.css" rel="stylesheet">
         <script src="js/raphael-min.js"></script>
@@ -17,11 +23,11 @@
         <script>
             var RSC = RSC || {};
             RSC.Locations = {
-                'RST': { x:345, y:75 },
-                'Courtyard': { x:75, y:300 },
-                'Swan': { x:318, y:118 },
-                'Swan Room': { x:292, y:107 },
-                'Paccar': { x:320, y:50 }
+                'RST': { x:345, y:75, colour:'#c00' },
+                'Courtyard': { x:75, y:300, colour:'#f90' },
+                'Swan': { x:318, y:118, colour:'black' },
+                'Swan Room': { x:292, y:107, colour:'black' },
+                'Paccar': { x:320, y:50, colour:'#090' }
             };
             RSC.Events = {
                 'Of All the People in All the World, Stan’s Café': { location: 'Paccar', start: '2012-04-14', end: '2012-07-21' },
@@ -47,15 +53,15 @@
                         });
                     }
                 }
-			});//.hide();
+			}).hide();
 
             var paper = Raphael("map", 400, 360);
             paper.image('i/stratford.png', 0, 0, 400, 360);
             $.each(RSC.Locations, function(i, v) {
                 var circle = paper.circle(v.x, v.y, 10).attr({
                     opacity: 0,
-                    fill: "#f00",
-                    stroke: "#f00"
+                    fill: v.colour,
+                    stroke: v.colour
                 });
                 v.circle = circle;
             });
