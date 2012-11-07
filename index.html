@@ -23,16 +23,17 @@
         <script>
             var RSC = RSC || {};
             RSC.Locations = {
-                'RST': { x:345, y:75, colour:'#c00' },
-                'Courtyard': { x:75, y:300, colour:'#f90' },
+                'RST': { x:345, y:75, colour:'#c00', size:20 },
+                'Courtyard': { x:75, y:300, colour:'#f90', size:10 },
                 'Swan': { x:318, y:118, colour:'black' },
                 'Swan Room': { x:292, y:107, colour:'black' },
-                'Paccar': { x:320, y:50, colour:'#090' }
+                'Paccar': { x:320, y:50, colour:'#090', size:5 }
             };
             RSC.Events = {
                 'Of All the People in All the World, Stan’s Café': { location: 'Paccar', start: '2012-04-14', end: '2012-07-21' },
                 'Twelfth Night': { location: 'RST', start: '2012-03-08', end: '2012-05-08' },
                 'Much Ado About Nothing': { location: 'Courtyard', start: '2012-05-08', end: '2012-08-08' },
+                'The Tempest': { location: 'RST', start: '2012-09-08', end: '2012-10-20' }
             };
 
 		$(function(){
@@ -42,13 +43,28 @@
                     change: function(event, ui) {
                         var d = $('#date').val(),
                             new_date = '2012-' + d.substring(3, 5) + '-' + d.substring(0, 2);
+                        var out = {};
                         $.each(RSC.Events, function(name, data) {
-                            var c = RSC.Locations[data.location].circle;
-                            c.attr({ title: name });
                             if (data.start <= new_date && new_date <= data.end) {
-                                c.animate({ opacity: 1 }, 200);
-                            } else {
-                                c.animate({ opacity: 0 }, 200);
+                                out[data.location] = [ name, 1 ];
+                            } else if (!out[data.location]) {
+                                out[data.location] = [ name, 0 ];
+                            }
+                        });
+                        $.each(out, function(location, show) {
+                            var l = RSC.Locations[location],
+                                c = l.circle,
+                                current_r = c.attr('r'),
+                                name = show[0];
+                            show = show[1];
+                            c.attr({ title: name });
+                            var s = c.status();
+                            if (s.length) return;
+                            if (show && !current_r) {
+                                c.animate({ r:l.size }, 200);
+                            }
+                            if (!show && current_r) {
+                                c.animate({ r:0 }, 200);
                             }
                         });
                     }
@@ -58,8 +74,7 @@
             var paper = Raphael("map", 400, 360);
             paper.image('i/stratford.png', 0, 0, 400, 360);
             $.each(RSC.Locations, function(i, v) {
-                var circle = paper.circle(v.x, v.y, 10).attr({
-                    opacity: 0,
+                var circle = paper.circle(v.x, v.y, 0).attr({
                     fill: v.colour,
                     stroke: v.colour
                 });
@@ -71,7 +86,7 @@
             (function iterator() {
                 $('select#date').val(arr[i].value).change();
                 if(++i<l) {
-                    setTimeout(iterator, 20);
+                    setTimeout(iterator, 50);
                 }
             })();
 		});
