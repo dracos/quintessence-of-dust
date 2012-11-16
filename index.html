@@ -7,92 +7,112 @@
 	<style type="text/css">
         label { display: none; }
         .ui-slider { margin: 4em; }
+        #date_slider { font-size: 70%; }
         #map {
             clear: both;
             margin: 6em auto 2em;
-            width: 400px;
+            width: 1200px;
             padding: 2px 2px 0;
-            border: solid 1px #ccc;
         }
 	</style>
 	    <link href="jquery-ui/css/smoothness/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+
         <script src="js/raphael-min.js"></script>
+        <script src="js/popup.js"></script>
         <script src="jquery-ui/js/jquery-1.8.2.js"></script>
         <script src="jquery-ui/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="rsc.clock.js"></script>
+        <script src="rsc.data.js"></script>
+        <script src="rsc.rect.js"></script>
 	    <script src="js/selectToUISlider.jQuery.js"></script>
         <script>
-            var RSC = RSC || {};
-            RSC.Locations = {
-                'RST': { x:345, y:75, colour:'#c00', size:20 },
-                'Courtyard': { x:75, y:300, colour:'#f90', size:10 },
-                'Swan': { x:318, y:118, colour:'black' },
-                'Swan Room': { x:292, y:107, colour:'black' },
-                'Paccar': { x:320, y:50, colour:'#090', size:5 }
-            };
-            RSC.Events = {
-                'Of All the People in All the World, Stan’s Café': { location: 'Paccar', start: '2012-04-14', end: '2012-07-21' },
-                'Twelfth Night': { location: 'RST', start: '2012-03-08', end: '2012-05-08' },
-                'Much Ado About Nothing': { location: 'Courtyard', start: '2012-05-08', end: '2012-08-08' },
-                'The Tempest': { location: 'RST', start: '2012-09-08', end: '2012-10-20' }
-            };
-
 		$(function(){
+            var last_date;
 			$('select#date').selectToUISlider({
                 sliderOptions: {
                     //animate: true,
                     change: function(event, ui) {
                         var d = $('#date').val(),
                             new_date = '2012-' + d.substring(3, 5) + '-' + d.substring(0, 2);
-                        var out = {};
-                        $.each(RSC.Events, function(name, data) {
-                            if (data.start <= new_date && new_date <= data.end) {
-                                out[data.location] = [ name, 1 ];
-                            } else if (!out[data.location]) {
-                                out[data.location] = [ name, 0 ];
-                            }
+                        $.each(clocks, function(i, v) {
+                            v.set_date(new_date, last_date);
                         });
-                        $.each(out, function(location, show) {
-                            var l = RSC.Locations[location],
-                                c = l.circle,
-                                current_r = c.attr('r'),
-                                name = show[0];
-                            show = show[1];
-                            c.attr({ title: name });
-                            var s = c.status();
-                            if (s.length) return;
-                            if (show && !current_r) {
-                                c.animate({ r:l.size }, 200);
-                            }
-                            if (!show && current_r) {
-                                c.animate({ r:0 }, 200);
-                            }
-                        });
+                        last_date = new_date;
                     }
                 }
 			}).hide();
 
-            var paper = Raphael("map", 400, 360);
-            paper.image('i/stratford.png', 0, 0, 400, 360);
+            RSC.Maps = {
+                'stratford': { x: 10, y: 10, w: 250, h: 225 },
+                'london': { 'x': 400, 'y': 150, 'w': 750, 'h': 500 },
+                'uk': { x: 0, y: 0, w: 0.8*641, h: 0.8*794 },
+                'stratfordOnUK': { x: 245, y: 360, w: 4, h: 4 },
+                'londonOnUK': { x: 285, y: 390, w: 10, h: 5 }
+            };
+
+            var paper = Raphael("map", 1200, 700),
+                stratford = RSC.Maps.stratford,
+                stratfordOnUK = RSC.Maps.stratfordOnUK,
+                london = RSC.Maps.london;
+
+            // UK Map
+            paper.image('i/gb-watercolour.png', RSC.Maps.uk.x, RSC.Maps.uk.y, RSC.Maps.uk.w, RSC.Maps.uk.h);
+
+            // Stratford map
+            RSC.Rect(paper, stratford, 1).attr({ 'stroke': '#666', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
+            RSC.Rect(paper, stratfordOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
+            paper.path("M" + (stratford.x-1)+','+(stratford.y+stratford.h+1)+" " + (stratfordOnUK.x) + ',' + (stratfordOnUK.y) + ' ' + (stratfordOnUK.x) + ',' + (stratfordOnUK.y + stratfordOnUK.h) + " " +(stratford.x+stratford.w+1)+','+(stratford.y+stratford.h+1)).attr({
+                'stroke': 'black',
+                'stroke-opacity': 0.3,
+                'fill': 'black',
+                'fill-opacity': 0.3
+            });
+            paper.image('i/stratford.png', stratford.x, stratford.y, stratford.w, stratford.h);
+
+            // London map
+            RSC.Rect(paper, london, 1).attr({ 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
+            RSC.Rect(paper, RSC.Maps.londonOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
+            paper.path("M" + (london.x-1)+','+(london.y-1)+" " + (RSC.Maps.londonOnUK.x) + ',' + (RSC.Maps.londonOnUK.y) + " " + (RSC.Maps.londonOnUK.x) + ',' + (RSC.Maps.londonOnUK.y+RSC.Maps.londonOnUK.h) + " " +(london.x-1)+','+(london.y+london.h+1)).attr({
+                'stroke': 'black',
+                'stroke-opacity': 0.3,
+                'fill': 'black',
+                'fill-opacity': 0.3
+            });
+            paper.image('i/london-watercolour.png', london.x, london.y, london.w, london.h);
+
+            // Locations
             $.each(RSC.Locations, function(i, v) {
-                var circle = paper.circle(v.x, v.y, 0).attr({
-                    fill: v.colour,
-                    stroke: v.colour
-                });
-                v.circle = circle;
+                var map = RSC.Maps[v.map],
+                    cx = map.x + v.x * map.w,
+                    cy = map.y + v.y * map.h,
+                    v = $.extend(v, { cx: cx, cy: cy });
+                paper.circle(cx, cy, 5).attr({ fill: 'red' });
+                var popup = paper.popup(cx, cy, i).update(cx, cy, 10);
             });
 
+            var clocks = [];
+            $.each(RSC.Events, function(i, e) {
+                var loc = RSC.Locations[e.location],
+                    clock = new RSC.Clock(paper, loc.cx, loc.cy, 50, [
+                        { start: e.start, end: e.end, colour: "red", name: i }
+                    ]);
+                clocks.push(clock);
+            });
+
+            // GO!
             var arr = $('select#date option');
             var i = 0, l = arr.length;
             (function iterator() {
                 $('select#date').val(arr[i].value).change();
                 if(++i<l) {
-                    setTimeout(iterator, 50);
+                    setTimeout(iterator, 100);
                 }
             })();
 		});
 	</script>
     </head>
     <body>
+        <div id="date_slider">
 			<label for="date">From:</label>
 			<select name="date" id="date">
 				<optgroup label="March">
@@ -165,6 +185,7 @@
                     <option value="31/10">31st October</option>
 				</optgroup>
 			</select>
+        </div>
 
             <div id="map"></div>
 </body>
