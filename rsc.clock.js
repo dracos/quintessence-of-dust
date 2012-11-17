@@ -47,7 +47,7 @@ RSC.Clock.prototype.set_date = function(date, last_date, cb) {
             return;
         }
         if (date < seg.start || date > seg.end) {
-            var pos = date < seg.start ? 0 : seg.max;
+            var pos = date < seg.start ? seg.min : seg.max;
             seg.done.animate({ segment: [ clock.x, clock.y, 0, seg.min, pos ] }, 500);
             seg.todo.animate({ segment: [ clock.x, clock.y, 0, seg.min, seg.max ] }, 500, cb);
             return;
