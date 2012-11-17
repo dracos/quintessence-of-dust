@@ -52,7 +52,7 @@ RSC.Clock.prototype.set_date = function(date, last_date, cb) {
             seg.todo.animate({ segment: [ clock.x, clock.y, 0, seg.min, seg.max ] }, 500, cb);
             return;
         }
-        var bouncy = (date == seg.start && last_date<date) || (date == seg.end && last_date>date);;
+        var bouncy = ((date == seg.start && last_date<date) || (date == seg.end && last_date>date)) && !(seg.start == seg.end);
         var pos = seg.min + days_diff(seg.start, date)*(seg.max-seg.min)/seg.days;
         seg.done.animate({ segment: [ clock.x, clock.y, clock.r, seg.min, pos ] }, 500, bouncy?'backOut':'');
         seg.todo.animate({ segment: [ clock.x, clock.y, clock.r, seg.min, seg.max ] }, 500, 'backOut', cb);
