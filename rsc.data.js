@@ -7,11 +7,11 @@ var RSC = (function(RSC) {
 RSC.Locations = {
 
     // Stratford
-    'Royal Shakespeare Theatre': { map: 'stratford', x:0.88, y:0.2, label_dir: 3 },
-    'Courtyard Theatre': { map: 'stratford', x:0.18, y:0.85, label_dir: 3 },
-    'Swan Theatre': { map: 'stratford', x:0.79, y:0.33, label_dir: 0 },
-    'Swan Room': { map: 'stratford', x:0.73, y:0.28, },
-    'Paccar': { map: 'stratford', x:0.79, y:0.13, label_dir: 2 },
+    'Royal Shakespeare Theatre': { map: 'stratford', x:0.80, y:0.28, label_dir: 3 },
+    'Courtyard Theatre': { map: 'stratford', x:0.20, y:0.75, label_dir: 3 },
+    'Swan Theatre': { map: 'stratford', x:0.74, y:0.37, label_dir: 0 },
+    'Swan Room': { map: 'stratford', x:0.69, y:0.33, },
+    'Paccar': { map: 'stratford', x:0.75, y:0.23, label_dir: 2 },
 
     // London
     'Roundhouse': { map: 'london', x:0.37, y: (0.14-0.1)*10/6 },
