@@ -43,11 +43,11 @@
 			}).hide();
 
             RSC.Maps = {
-                'stratford': { x: 10, y: 10, w: 250, h: 225 },
-                'london': { 'x': 400, 'y': 150, 'w': 750, 'h': 500 },
-                'uk': { x: 0, y: 0, w: 0.8*641, h: 0.8*794 },
-                'stratfordOnUK': { x: 245, y: 360, w: 4, h: 4 },
-                'londonOnUK': { x: 285, y: 390, w: 10, h: 5 }
+                'stratford': { x: 600, y: 10, w: 230, h: 230 },
+                'london': { 'x': 440, 'y': 310, 'w': 750, 'h': 300 },
+                'uk': { x: 2, y: 2, w: 0.8*641, h: 0.8*794 },
+                'stratfordOnUK': { x: 322, y: 492, w: 4, h: 4 },
+                'londonOnUK': { x: 377, y: 528, w: 10, h: 5 }
             };
 
             var paper = Raphael("map", 1200, 700),
@@ -56,29 +56,32 @@
                 london = RSC.Maps.london;
 
             // UK Map
+            RSC.Rect(paper, RSC.Maps.uk, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
             paper.image('i/gb-watercolour.png', RSC.Maps.uk.x, RSC.Maps.uk.y, RSC.Maps.uk.w, RSC.Maps.uk.h);
+            paper.text(RSC.Maps.uk.x+16, RSC.Maps.uk.y+64, "World Shakespeare\nFestival").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '48px', 'text-anchor': 'start' });
 
-            // Stratford map
-            RSC.Rect(paper, stratford, 1).attr({ 'stroke': '#666', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
-            RSC.Rect(paper, stratfordOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
-            paper.path("M" + (stratford.x-1)+','+(stratford.y+stratford.h+1)+" " + (stratfordOnUK.x) + ',' + (stratfordOnUK.y) + ' ' + (stratfordOnUK.x) + ',' + (stratfordOnUK.y + stratfordOnUK.h) + " " +(stratford.x+stratford.w+1)+','+(stratford.y+stratford.h+1)).attr({
+            var zoomed = {
                 'stroke': 'black',
-                'stroke-opacity': 0.3,
+                'stroke-opacity': 0.2,
                 'fill': 'black',
-                'fill-opacity': 0.3
-            });
-            paper.image('i/stratford.png', stratford.x, stratford.y, stratford.w, stratford.h);
+                'fill-opacity': 0.2
+            };
+            // Stratford map
+            paper.text(stratford.x+stratford.w+16, stratford.y+stratford.h-48, "Stratford").transform("R90").attr({ 'font-family': 'Baskerville', 'font-size': '24px' });
+            RSC.Rect(paper, stratford, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
+            RSC.Rect(paper, stratfordOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
+            paper.path("M" + (stratford.x-1)+','+(stratford.y+stratford.h+1)+" " + (stratfordOnUK.x) + ',' + (stratfordOnUK.y+stratfordOnUK.h)).attr(zoomed);
+            paper.path("M" + (stratford.x-1)+','+(stratford.y-1)+" " + (stratfordOnUK.x) + ',' + (stratfordOnUK.y) + ' ' + (stratfordOnUK.x) + ',' + (stratfordOnUK.y + stratfordOnUK.h) + ' ' + (stratfordOnUK.x+stratfordOnUK.w) + ',' + (stratfordOnUK.y+stratfordOnUK.h) + " " +(stratford.x+stratford.w+1)+','+(stratford.y+stratford.h+1)).attr(zoomed);
+            paper.image('i/stratford15z.png', stratford.x, stratford.y, stratford.w, stratford.h);
 
             // London map
-            RSC.Rect(paper, london, 1).attr({ 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
+            paper.text(london.x+london.w-40, london.y-16, "London").attr({ 'font-family': 'Baskerville', 'font-size': '24px' });
+            RSC.Rect(paper, london, 1).attr({ 'stroke-width': 1 })//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
             RSC.Rect(paper, RSC.Maps.londonOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
-            paper.path("M" + (london.x-1)+','+(london.y-1)+" " + (RSC.Maps.londonOnUK.x) + ',' + (RSC.Maps.londonOnUK.y) + " " + (RSC.Maps.londonOnUK.x) + ',' + (RSC.Maps.londonOnUK.y+RSC.Maps.londonOnUK.h) + " " +(london.x-1)+','+(london.y+london.h+1)).attr({
-                'stroke': 'black',
-                'stroke-opacity': 0.3,
-                'fill': 'black',
-                'fill-opacity': 0.3
-            });
-            paper.image('i/london-watercolour.png', london.x, london.y, london.w, london.h);
+            paper.path("M" + (london.x+london.w+1)+','+(london.y+london.h+1)+" " + (RSC.Maps.londonOnUK.x+RSC.Maps.londonOnUK.w) + ',' + (RSC.Maps.londonOnUK.y+RSC.Maps.londonOnUK.h)).attr(zoomed);
+            paper.path("M" + (london.x+london.w+1)+','+(london.y-1)+" " + (RSC.Maps.londonOnUK.x+RSC.Maps.londonOnUK.w) + ',' + (RSC.Maps.londonOnUK.y)).attr(zoomed);
+            paper.path("M" + (london.x-1)+','+(london.y-1)+" " + (RSC.Maps.londonOnUK.x) + ',' + (RSC.Maps.londonOnUK.y) + " " + (RSC.Maps.londonOnUK.x) + ',' + (RSC.Maps.londonOnUK.y+RSC.Maps.londonOnUK.h)+ " " + (RSC.Maps.londonOnUK.x) + ',' + (RSC.Maps.londonOnUK.y+RSC.Maps.londonOnUK.h) + " " +(london.x-1)+','+(london.y+london.h+1)).attr(zoomed);
+            paper.image('i/london-watercolour-cut.png', london.x, london.y, london.w, london.h);
 
             // Locations
             $.each(RSC.Locations, function(i, v) {
@@ -86,8 +89,8 @@
                     cx = map.x + v.x * map.w,
                     cy = map.y + v.y * map.h,
                     v = $.extend(v, { cx: cx, cy: cy });
-                paper.circle(cx, cy, 5).attr({ fill: 'red' });
-                var popup = paper.popup(cx, cy, i).update(cx, cy, 10);
+                paper.circle(cx, cy, 5).attr({ fill: 'red', stroke: 'none' });
+                var popup = paper.popup(cx, cy, i).update(cx, cy, v.label_dir);
             });
 
             var clocks = [];

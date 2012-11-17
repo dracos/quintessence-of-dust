@@ -6,7 +6,7 @@ Raphael.fn.popup=function(x,y,text,size){
         d=3;
     res.push(this.path().attr({ fill:"#333333", stroke:"#333333" }));
     res.push(this.text(x,y,text).attr(txtattr).attr({ fill:"#fff","font-family":"Helvetica, Arial" }));
-    res.update = function(X,Y,WIDTH) {
+    res.update = function(X,Y,override_dir) {
         X = X||x;
         Y = Y||y;
         //console.log(X, this[1].getBBox().width);
@@ -15,9 +15,7 @@ Raphael.fn.popup=function(x,y,text,size){
             bb = this[1].getBBox(),
             w = bb.width/2,
             h = bb.height/2,
-            dir = (X-bb.width<15) ? 3 : 1;
-        //console.log(dir);
-        var X = (dir==1) ? X: X+WIDTH,
+            dir = (typeof override_dir !== 'undefined') ? override_dir : ((X-bb.width<15) ? 3 : 1),
             dx = [ 0, w+size*2, 0, -w-size*2 ],
             dy = [ -h*2-size*3, -h-size, 0, -h-size ],
             p = [
