@@ -97,24 +97,36 @@
             $.each(RSC.Events, function(i, e) {
                 var loc = RSC.Locations[e.location],
                     clock = new RSC.Clock(paper, loc.cx, loc.cy, 50, [
-                        { start: e.start, end: e.end, colour: "red", name: i }
+                        { start: e.start, end: e.end, colour: "red", name: e.title }
                     ]);
                 clocks.push(clock);
             });
 
             // GO!
-            var arr = $('select#date option');
-            var i = 0, l = arr.length;
-            (function iterator() {
-                $('select#date').val(arr[i].value).change();
-                if(++i<l) {
-                    setTimeout(iterator, 100);
+            RSC.running = 0;
+            RSC.run = function() {
+                if (RSC.running) {
+                    return;
                 }
-            })();
+                var arr = $('select#date option');
+                var i = 0, l = arr.length;
+                RSC.running = 1;
+                (function iterator() {
+                    $('select#date').val(arr[i].value).change();
+                    if(++i<l && RSC.running) {
+                        setTimeout(iterator, 500);
+                    }
+                })();
+            };
+            RSC.stop = function() {
+                RSC.running = 0;
+            };
 		});
 	</script>
     </head>
     <body>
+        <button onclick="RSC.run();">Run</button>
+        <button onclick="RSC.stop();">Stop</button>
         <div id="date_slider">
 			<label for="date">From:</label>
 			<select name="date" id="date">
@@ -186,6 +198,11 @@
 					<option value="21/10">21st October</option> <option value="22/10">22nd October</option> <option value="23/10">23rd October</option> <option value="24/10">24th October</option> <option value="25/10">25th October</option>
 					<option value="26/10">26th October</option> <option value="27/10">27th October</option> <option value="28/10">28th October</option> <option value="29/10">29th October</option> <option value="30/10">30th October</option>
                     <option value="31/10">31st October</option>
+				</optgroup>
+                <optgroup label="November">
+					<option value="01/11">1st November</option> <option value="02/11">2nd November</option> <option value="03/11">3rd November</option> <option value="04/11">4th November</option> <option value="05/11">5th November</option>
+					<option value="06/11">6th November</option> <option value="07/11">7th November</option> <option value="08/11">8th November</option> <option value="09/11">9th November</option> <option value="10/11">10th November</option>
+                    <option value="11/11">11th November</option>
 				</optgroup>
 			</select>
         </div>
