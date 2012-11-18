@@ -120,10 +120,16 @@
 
             var clocks = [];
             $.each(RSC.Events, function(i, e) {
-                var loc = RSC.Locations[e.location],
-                    clock = new RSC.Clock(paper, loc.cx, loc.cy, 50, [
-                        { start: e.start, end: e.end, colour: "red", name: e.title }
-                    ]);
+                var loc;
+                var out = [];
+                if (!$.isArray(e)) { e = [ e ]; }
+                $.each(e, function(i, e) {
+                    loc = RSC.Locations[e.location];
+                    var name = e.title;
+                    if (e.sublocation) name += '\n(' + e.sublocation + ')';
+                    out.push({ start: e.start, end: e.end, colour: "red", name: name });
+                });
+                var clock = new RSC.Clock(paper, loc.cx, loc.cy, 20, out);
                 clocks.push(clock);
             });
 
