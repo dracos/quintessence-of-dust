@@ -16,7 +16,7 @@
 	overflow: hidden;
 	left: -999999999px;
 }
-.ui-slider .ui-state-active .ui-slider-tooltip, .ui-slider .ui-state-focus .ui-slider-tooltip, .ui-slider .ui-state-hover .ui-slider-tooltip {
+.ui-slider .ui-state-active .ui-slider-tooltip, .ui-slider .ui-state-focus .ui-slider-tooltip, .ui-slider .ui-state-hover .ui-slider-tooltip, .ui-slider .ui-slider-tooltip {
 	display: block;
 	position: absolute;
 	bottom: 2.5em;

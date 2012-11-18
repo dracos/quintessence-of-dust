@@ -30,11 +30,29 @@
 	    <script src="js/selectToUISlider.jQuery.js"></script>
         <script>
 		$(function(){
+            var selectOptions = (function(){
+                var opts = [];
+                $('select#date').find('option').each(function(){
+                    opts.push({
+                        value: jQuery(this).attr('value'),
+                        text: jQuery(this).text()
+                    });
+                });
+                return opts;
+            })();
+
             var last_date;
 			$('select#date').selectToUISlider({
                 sliderOptions: {
                     //animate: true,
                     change: function(event, ui) {
+                        var thisHandle = $(ui.handle);
+                        var textval = selectOptions[ui.value].text;
+                        thisHandle
+                            .attr('aria-valuetext', textval)
+                            .attr('aria-valuenow', ui.value)
+                            .find('.ui-slider-tooltip .ttContent')
+                                .text( textval );
                         var d = $('#date').val(),
                             new_date = '2012-' + d.substring(3, 5) + '-' + d.substring(0, 2);
                         $.each(clocks, function(i, v) {
