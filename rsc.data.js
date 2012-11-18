@@ -90,12 +90,14 @@ RSC.Events = [
     { title: 'In a Pickle', location: 'Stratford Circus', start: '2012-06-19', end: '2012-06-23' },
     { title: 'Romeo and Juliet in Baghdad', location: 'Riverside Studios', start: '2012-06-28', end: '2012-06-30' },
     { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Riverside Studios', start: '2012-07-04', end: '2012-07-07' },
-    { title: 'Timon of Athens', location: 'National Theatre', start: '2012-07-10', end:  '2012-09-09' },
+    [
+        { title: 'Timon of Athens', location: 'National Theatre', start: '2012-07-10', end:  '2012-09-09' },
+        { title: 'Cesario', location: 'National Theatre', start: '2012-08-22', end: '2012-08-25' }
+    ],
     { title: 'Otello', location: 'Royal Opera House', start: '2012-07-12', end: '2012-07-24' },
     { title: 'Desdemona', location: 'Barbican', start: '2012-07-19', end: '2012-07-20' },
-    { title: 'Much Ado About Nothing', location: 'Noël Coward Theatre', start: '2012-09-24', end: '2012-10-27' },
     { title: 'Julius Caesar', location: 'Noël Coward Theatre', start: '2012-08-08', end: '2012-09-15' },
-    { title: 'Cesario', location: 'National Theatre', start: '2012-08-22', end: '2012-08-25' },
+    { title: 'Much Ado About Nothing', location: 'Noël Coward Theatre', start: '2012-09-24', end: '2012-10-27' },
     { title: 'Troilus and Cressida', location: 'Riverside Studios', start: '2012-08-23', end: '2012-09-08' },
     { title: 'King Lear', location: 'Almeida Theatre', start: '2012-08-31', end: '2012-11-03' },
     { title: 'Forests', location: 'Barbican', start: '2012-11-06', end: '2012-11-10' },
