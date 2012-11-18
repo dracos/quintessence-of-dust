@@ -148,12 +148,15 @@
                     $('select#date').val(arr[i].value).change();
                     if(++i<l && RSC.running) {
                         setTimeout(iterator, 500);
+                    } else {
+                        RSC.running = 0;
                     }
                 })();
             };
             RSC.stop = function() {
                 RSC.running = 0;
             };
+            $('select#date').change();
         });
         </script>
     </head>
@@ -165,6 +168,7 @@
         <div id="date_slider">
             <label for="date">From:</label>
             <select name="date" id="date">
+                <!--
                 <optgroup label="March">
                     <option value="01/03">1st March</option> <option value="02/03">2nd March</option> <option value="03/03">3rd March</option> <option value="04/03">4th March</option> <option value="05/03">5th March</option>
                     <option value="06/03">6th March</option> <option value="07/03">7th March</option> <option value="08/03">8th March</option> <option value="09/03">9th March</option> <option value="10/03">10th March</option>
@@ -174,11 +178,14 @@
                     <option value="26/03">26th March</option> <option value="27/03">27th March</option> <option value="28/03">28th March</option> <option value="29/03">29th March</option> <option value="30/03">30th March</option>
                     <option value="31/03">31st March</option>
                 </optgroup>
+                -->
                 <optgroup label="April">
+                    <!--
                     <option value="01/04">1st April</option> <option value="02/04">2nd April</option> <option value="03/04">3rd April</option> <option value="04/04">4th April</option> <option value="05/04">5th April</option>
                     <option value="06/04">6th April</option> <option value="07/04">7th April</option> <option value="08/04">8th April</option> <option value="09/04">9th April</option> <option value="10/04">10th April</option>
                     <option value="11/04">11th April</option> <option value="12/04">12th April</option> <option value="13/04">13th April</option> <option value="14/04">14th April</option> <option value="15/04">15th April</option>
                     <option value="16/04">16th April</option> <option value="17/04">17th April</option> <option value="18/04">18th April</option> <option value="19/04">19th April</option> <option value="20/04">20th April</option>
+                    -->
                     <option value="21/04">21st April</option> <option value="22/04">22nd April</option> <option value="23/04">23rd April</option> <option value="24/04">24th April</option> <option value="25/04">25th April</option>
                     <option value="26/04">26th April</option> <option value="27/04">27th April</option> <option value="28/04">28th April</option> <option value="29/04">29th April</option> <option value="30/04">30th April</option>
                 </optgroup>
