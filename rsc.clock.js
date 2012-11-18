@@ -18,8 +18,8 @@ RSC.Clock = function(paper, x, y, r, segs) { // starts, ends, cols, texts) {
             min = i * 360 / segs.length,
             max = (i+1) * 360 / segs.length,
             middle = min+(max-min)/2,
-            xm = x + (r/2) * Math.sin(middle * Math.PI/180),
-            ym = y - (r/2) * Math.cos(middle * Math.PI/180),
+            xm = x + (segs.length==1 ? 0 : r/2) * Math.sin(middle * Math.PI/180),
+            ym = y - (segs.length==1 ? 0 : r/2) * Math.cos(middle * Math.PI/180),
             seg = $.extend(seg, {
                 days: days_diff(seg.start, seg.end),
                 min: min,
