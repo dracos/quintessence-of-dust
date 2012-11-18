@@ -1,5 +1,5 @@
-/* rsc.clock.js
- * This module creates a circular blob containing one or more pie-chart like clocks within it.
+/* rsc.rect.js
+ * This utility module creates a rectangle from an (x,y,w,h) object, optionally with a buffer.
  */
 
 var RSC = (function(RSC) {
