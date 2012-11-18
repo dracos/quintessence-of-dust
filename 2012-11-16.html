@@ -110,8 +110,12 @@
                     cx = map.x + v.x * map.w,
                     cy = map.y + v.y * map.h,
                     v = $.extend(v, { cx: cx, cy: cy });
-                paper.circle(cx, cy, 5).attr({ fill: 'red', stroke: 'none' });
-                var popup = paper.popup(cx, cy, i).update(cx, cy, v.label_dir);
+                v.popup = paper.popup(cx, cy, i).update(cx, cy, v.label_dir).hide()
+                    .hover(function(){ v.popup.toFront().show(); },
+                        function(){ v.popup.hide(); });
+                paper.circle(cx, cy, 5).attr({ fill: 'red', stroke: 'none' })
+                    .hover(function() { v.popup.toFront().show(); },
+                        function() { v.popup.hide(); });
             });
 
             var clocks = [];
