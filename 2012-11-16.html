@@ -13,7 +13,7 @@
         .ui-slider dt:nth-of-type(odd) span { background-color: #666; color: white; }
         #map {
             clear: both;
-            margin: 6em auto 2em;
+            margin: 4em auto 2em;
             width: 1200px;
             padding: 2px 2px 0;
         }
@@ -71,7 +71,7 @@
                 'londonOnUK': { x: 377, y: 528, w: 10, h: 5 }
             };
 
-            var paper = Raphael("map", 1200, 700),
+            var paper = Raphael("map", 1200, 640),
                 stratford = RSC.Maps.stratford,
                 stratfordOnUK = RSC.Maps.stratfordOnUK,
                 london = RSC.Maps.london;
@@ -146,8 +146,10 @@
         </script>
     </head>
     <body>
-        <button onclick="RSC.run();">Run</button>
-        <button onclick="RSC.stop();">Stop</button>
+        <div style="float:left">
+            <button onclick="RSC.run();">Run</button>
+            <br><button onclick="RSC.stop();">Stop</button>
+        </div>
         <div id="date_slider">
             <label for="date">From:</label>
             <select name="date" id="date">
