@@ -80,7 +80,7 @@
                 london = RSC.Maps.london;
 
             // UK Map
-            RSC.Rect(paper, RSC.Maps.uk, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
+            // RSC.Rect(paper, RSC.Maps.uk, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
             paper.image('i/gb-watercolour.png', RSC.Maps.uk.x, RSC.Maps.uk.y, RSC.Maps.uk.w, RSC.Maps.uk.h);
             paper.text(RSC.Maps.uk.x+16, RSC.Maps.uk.y+64, "World Shakespeare\nFestival").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '48px', 'text-anchor': 'start' });
 
@@ -92,7 +92,7 @@
             };
             // Stratford map
             paper.text(stratford.x+stratford.w+16, stratford.y+stratford.h-48, "Stratford").transform("R90").attr({ 'font-family': 'Baskerville', 'font-size': '24px' });
-            RSC.Rect(paper, stratford, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
+            RSC.Rect(paper, stratford, 0).attr({ stroke: 'none' }).glow({ });
             RSC.Rect(paper, stratfordOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
             paper.path("M" + (stratford.x-1)+','+(stratford.y+stratford.h+1)+" " + (stratfordOnUK.x) + ',' + (stratfordOnUK.y+stratfordOnUK.h)).attr(zoomed);
             paper.path("M" + (stratford.x-1)+','+(stratford.y-1)+" " + (stratfordOnUK.x) + ',' + (stratfordOnUK.y) + ' ' + (stratfordOnUK.x) + ',' + (stratfordOnUK.y + stratfordOnUK.h) + ' ' + (stratfordOnUK.x+stratfordOnUK.w) + ',' + (stratfordOnUK.y+stratfordOnUK.h) + " " +(stratford.x+stratford.w+1)+','+(stratford.y+stratford.h+1)).attr(zoomed);
@@ -100,7 +100,7 @@
 
             // London map
             paper.text(london.x+london.w-40, london.y-16, "London").attr({ 'font-family': 'Baskerville', 'font-size': '24px' });
-            RSC.Rect(paper, london, 1).attr({ 'stroke-width': 1 })//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
+            RSC.Rect(paper, london, 0).attr({ stroke: 'none' }).glow({});
             RSC.Rect(paper, RSC.Maps.londonOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
             paper.path("M" + (london.x+london.w+1)+','+(london.y+london.h+1)+" " + (RSC.Maps.londonOnUK.x+RSC.Maps.londonOnUK.w) + ',' + (RSC.Maps.londonOnUK.y+RSC.Maps.londonOnUK.h)).attr(zoomed);
             paper.path("M" + (london.x+london.w+1)+','+(london.y-1)+" " + (RSC.Maps.londonOnUK.x+RSC.Maps.londonOnUK.w) + ',' + (RSC.Maps.londonOnUK.y)).attr(zoomed);
