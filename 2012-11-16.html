@@ -31,6 +31,8 @@
         <script src="js/selectToUISlider.jQuery.js"></script>
         <script>
         $(function(){
+            var TIME = 500;
+
             var selectOptions = (function(){
                 var opts = [];
                 $('select#date').find('option').each(function(){
@@ -57,7 +59,7 @@
                         var d = $('#date').val(),
                             new_date = '2012-' + d.substring(3, 5) + '-' + d.substring(0, 2);
                         $.each(clocks, function(i, v) {
-                            v.set_date(new_date, last_date);
+                            v.set_date(new_date, last_date, TIME);
                         });
                         last_date = new_date;
                     }
@@ -144,17 +146,19 @@
                 var arr = $('select#date option');
                 var i = 0, l = arr.length;
                 RSC.running = 1;
+                TIME = 200;
                 (function iterator() {
                     $('select#date').val(arr[i].value).change();
                     if(++i<l && RSC.running) {
-                        setTimeout(iterator, 500);
+                        setTimeout(iterator, TIME);
                     } else {
-                        RSC.running = 0;
+                        RSC.stop();
                     }
                 })();
             };
             RSC.stop = function() {
                 RSC.running = 0;
+                TIME = 500;
             };
             $('select#date').change();
         });

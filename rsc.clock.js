@@ -41,7 +41,7 @@ RSC.Clock = function(paper, x, y, r, segs) { // starts, ends, cols, texts) {
     });
 };
 
-RSC.Clock.prototype.set_date = function(date, last_date, cb) {
+RSC.Clock.prototype.set_date = function(date, last_date, time, cb) {
     var clock = this;
     $.each(this.segs, function(i, seg) {
         if ((date < seg.start || date > seg.end) && (last_date < seg.start || last_date > seg.end)) {
@@ -49,14 +49,14 @@ RSC.Clock.prototype.set_date = function(date, last_date, cb) {
         }
         if (date < seg.start || date > seg.end) {
             var pos = date < seg.start ? seg.min : seg.max;
-            seg.done.animate({ segment: [ clock.x, clock.y, 0, seg.min, pos ] }, 500);
-            seg.todo.animate({ segment: [ clock.x, clock.y, 0, seg.min, seg.max ] }, 500, cb);
+            seg.done.animate({ segment: [ clock.x, clock.y, 0, seg.min, pos ] }, time);
+            seg.todo.animate({ segment: [ clock.x, clock.y, 0, seg.min, seg.max ] }, time, cb);
             return;
         }
         var bouncy = ((date == seg.start && last_date<date) || (date == seg.end && last_date>date)) && !(seg.start == seg.end);
         var pos = seg.min + days_diff(seg.start, date)*(seg.max-seg.min)/seg.days;
-        seg.done.animate({ segment: [ clock.x, clock.y, clock.r, seg.min, pos ] }, 500, bouncy?'backOut':'');
-        seg.todo.animate({ segment: [ clock.x, clock.y, clock.r, seg.min, seg.max ] }, 500, 'backOut', cb);
+        seg.done.animate({ segment: [ clock.x, clock.y, clock.r, seg.min, pos ] }, time, bouncy?'backOut':'');
+        seg.todo.animate({ segment: [ clock.x, clock.y, clock.r, seg.min, seg.max ] }, time, 'backOut', cb);
     });
 };
 
