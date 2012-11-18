@@ -154,16 +154,31 @@ jQuery.fn.selectToUISlider = function(settings){
 	
 	//write dl if there are optgroups
 	if(groups) {
+		var starts = [];
 		var inc = 0;
+		var mps_lastLeftVal;
+		jQuery(groups).each(function(h){
+			starts[h] = mps_lastLeftVal || 0;
+			var groupOpts = this.options;
+			jQuery(this.options).each(function(i){
+				inc++;
+				mps_lastLeftVal = leftVal(inc); // MPS addition
+			});
+		});
+		inc = 0;
+		mps_lastLeftVal = 0;
 		var scale = sliderComponent.append('<dl class="ui-slider-scale ui-helper-reset" role="presentation"></dl>').find('.ui-slider-scale:eq(0)');
 		jQuery(groups).each(function(h){
-			scale.append('<dt style="width: '+ (100/groups.length).toFixed(2) +'%' +'; left:'+ (h/(groups.length-1) * 100).toFixed(2)  +'%' +'"><span>'+this.label+'</span></dt>');//class name becomes camelCased label
+			var mps_l = mps_lastLeftVal || 0; // (h/(groups.length-1) * 100).toFixed(2);
+			var mps_w = ((starts[h+1] || 100) - starts[h]).toFixed(2); // (100/groups.length).toFixed(2);
+			scale.append('<dt style="width: '+ mps_w + '%; left:'+ mps_l +'%"><span>'+this.label+'</span></dt>');//class name becomes camelCased label
 			var groupOpts = this.options;
 			jQuery(this.options).each(function(i){
 				var style = (inc == selectOptions.length-1 || inc == 0) ? 'style="display: none;"' : '' ;
 				var labelText = (options.labelSrc == 'text') ? groupOpts[i].text : groupOpts[i].value;
-				scale.append('<dd style="left:'+ leftVal(inc) +'"><span class="ui-slider-label">'+ labelText +'</span><span class="ui-slider-tic ui-widget-content"'+ style +'></span></dd>');
+				scale.append('<dd style="left:'+ leftVal(inc) +'%"><span class="ui-slider-label">'+ labelText +'</span><span class="ui-slider-tic ui-widget-content"'+ style +'></span></dd>');
 				inc++;
+				mps_lastLeftVal = leftVal(inc); // MPS addition
 			});
 		});
 	}
@@ -173,23 +188,26 @@ jQuery.fn.selectToUISlider = function(settings){
 		jQuery(selectOptions).each(function(i){
 			var style = (i == selectOptions.length-1 || i == 0) ? 'style="display: none;"' : '' ;
 			var labelText = (options.labelSrc == 'text') ? this.text : this.value;
-			scale.append('<li style="left:'+ leftVal(i) +'"><span class="ui-slider-label">'+ labelText +'</span><span class="ui-slider-tic ui-widget-content"'+ style +'></span></li>');
+			scale.append('<li style="left:'+ leftVal(i) +'%"><span class="ui-slider-label">'+ labelText +'</span><span class="ui-slider-tic ui-widget-content"'+ style +'></span></li>');
 		});
 	}
 	
 	function leftVal(i){
-		return (i/(selectOptions.length-1) * 100).toFixed(2)  +'%';
+		return (i/(selectOptions.length-1) * 100).toFixed(2); // MPS removed '%' as need number
 		
 	}
 	
 
     /* MPS addition 2012-11-04 to highlight 1st of each month rather than random dates */
+	/* MPS hidden 2012-11-18, don't want any dates highlighted at all */
+	/*
 	for(var j=0; j<selectOptions.length; j++) {
         if (selectOptions[j].value.substring(0,2) == '01') {
 		    sliderComponent.find('.ui-slider-scale li:eq('+ j +') span.ui-slider-label, .ui-slider-scale dd:eq('+ j +') span.ui-slider-label').addClass('ui-slider-label-show');
         }
 	}
 	sliderComponent.find('.ui-slider-scale li:last span.ui-slider-label, .ui-slider-scale dd:last span.ui-slider-label').addClass('ui-slider-label-show');
+	*/
 	
 /*	MPS commented out
 	//show and hide labels depending on labels pref
@@ -207,12 +225,13 @@ jQuery.fn.selectToUISlider = function(settings){
 */
 
 	//style the dt's
+	/* MPS commented out, already done above.
 	sliderComponent.find('.ui-slider-scale dt').each(function(i){
 		jQuery(this).css({
 			'left': ((100 /( groups.length))*i).toFixed(2) + '%'
 		});
 	});
-	
+	*/
 
 	//inject and return 
 	sliderComponent
