@@ -13,13 +13,12 @@ RSC.Clock = function(paper, x, y, r, segs) { // starts, ends, cols, texts) {
     this.y = y;
     this.r = r;
     this.segs = segs;
-    for (var i=0; i<segs.length; i++) {
-        var seg = segs[i],
-            min = i * 360 / segs.length,
+    $.each(segs, function(i, seg) {
+        var min = i * 360 / segs.length,
             max = (i+1) * 360 / segs.length,
             middle = min+(max-min)/2,
-            xm = x + (segs.length==1 ? 0 : r/2) * Math.sin(middle * Math.PI/180),
-            ym = y - (segs.length==1 ? 0 : r/2) * Math.cos(middle * Math.PI/180),
+            xm = segs.length==1 ? x+r-4 : x + (r-2) * Math.sin(middle * Math.PI/180),
+            ym = segs.length==1 ? y : y - (r-2) * Math.cos(middle * Math.PI/180),
             seg = $.extend(seg, {
                 days: days_diff(seg.start, seg.end),
                 min: min,
@@ -29,15 +28,17 @@ RSC.Clock = function(paper, x, y, r, segs) { // starts, ends, cols, texts) {
                 todo: paper.path().attr({ segment: [ x, y, 0, min, max ], opacity: 0.5, fill: seg.colour, stroke: 'none' }),
                 done: paper.path().attr({ segment: [ x, y, 0, min, min ], fill: seg.colour, stroke: 'none' })
             }),
-            _label = paper.popup(x+r, y, seg.name).update(seg.middle.x, seg.middle.y).hide(),
+            dir = middle > 180 ? 1 : 3,
+            _label = paper.popup(x+r, y, seg.name).update(seg.middle.x, seg.middle.y, dir).hide()
+                .hover(function(){ _label.toFront().show(); },
+                    function(){ _label.hide(); }),
             _set = paper.set()
             .push( seg.todo, seg.done )
-            .hover((function(l){
-                return function() { l.toFront().show(); };
-            })(_label), (function(l){
-                return function() { l.hide(); };
-            })(_label));
-    }
+            .hover(
+                function() { _label.toFront().show(); },
+                function() { _label.hide(); }
+            );
+    });
 };
 
 RSC.Clock.prototype.set_date = function(date, last_date, cb) {
