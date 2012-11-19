@@ -109,6 +109,7 @@
 
             // Locations
             $.each(RSC.Locations, function(i, v) {
+                if (i.substring(0,1) == '.') { return; }
                 var map = RSC.Maps[v.map],
                     cx = map.x + v.x * map.w,
                     cy = map.y + v.y * map.h,
@@ -116,9 +117,16 @@
                 v.popup = paper.popup(cx, cy, i).update(cx, cy, v.label_dir).hide()
                     .hover(function(){ v.popup.toFront().show(); },
                         function(){ v.popup.hide(); });
-                paper.circle(cx, cy, 5).attr({ fill: 'red', stroke: 'none' })
+                paper.circle(cx, cy, 5).attr({ fill: 'black', stroke: 'none' })
                     .hover(function() { v.popup.toFront().show(); },
                         function() { v.popup.hide(); });
+                if (RSC.Locations['.' + i]) {
+                    var real = RSC.Locations['.' + i],
+                        real_cx = map.x + real.x * map.w,
+                        real_cy = map.y + real.y * map.h;
+                    paper.path("M" + cx + "," + cy + " " + real_cx + "," + real_cy);
+                    paper.circle(real_cx, real_cy, 2).attr({ fill: "black", stroke: "none" });
+                }
             });
 
             var clocks = [];
@@ -130,8 +138,12 @@
                     loc = RSC.Locations[e.location];
                     var name = e.title;
                     name += '\n' + RSC.duration(e.start, e.end);
-                    if (e.sublocation) name += '\n(' + e.sublocation + ')';
-                    out.push({ start: e.start, end: e.end, colour: "red", name: name });
+                    if (e.sublocation) {
+                        name += '\n' + e.sublocation;
+                    } else {
+                        name += '\n' + e.location;
+                    }
+                    out.push({ start: e.start, end: e.end, colour: RSC.Types[e.type], name: name });
                 });
                 var clock = new RSC.Clock(paper, loc.cx, loc.cy, 20, out);
                 clocks.push(clock);
@@ -160,7 +172,10 @@
                 RSC.running = 0;
                 TIME = 500;
             };
-            $('select#date').change();
+            //$('select#date').change();
+            setTimeout(function() {
+                $('select#date').val('13/08').change();
+            }, 1000);
         });
         </script>
     </head>
