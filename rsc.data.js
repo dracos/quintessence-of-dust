@@ -14,14 +14,14 @@ RSC.Types = {
 RSC.Locations = {
 
     // Stratford
-    '.Royal Shakespeare Theatre': { map: 'stratford', x:0.80, y:0.28, label_dir: 3 },
-    '.Swan Theatre': { map: 'stratford', x:0.74, y:0.37, label_dir: 0 },
-    '.Swan Room': { map: 'stratford', x:0.69, y:0.33, },
-    '.PACCAR Room': { map: 'stratford', x:0.75, y:0.23, label_dir: 2 },
+    '.Royal Shakespeare Theatre': { map: 'stratford', x:0.80, y:0.28 },
+    '.Swan Theatre': { map: 'stratford', x:0.74, y:0.37 },
+    '.Swan Room': { map: 'stratford', x:0.69, y:0.33 },
+    '.PACCAR Room': { map: 'stratford', x:0.75, y:0.23 },
     'Royal Shakespeare Theatre': { map: 'stratford', x:0.90, y:0.18, label_dir: 3 },
     'Courtyard Theatre': { map: 'stratford', x:0.20, y:0.75, label_dir: 3 },
     'Swan Theatre': { map: 'stratford', x:0.84, y:0.47, label_dir: 0 },
-    'Swan Room': { map: 'stratford', x:0.59, y:0.43, },
+    'Swan Room': { map: 'stratford', x:0.59, y:0.43 },
     'PACCAR Room': { map: 'stratford', x:0.65, y:0.13, label_dir: 2 },
 
     // London
@@ -38,7 +38,7 @@ RSC.Locations = {
     // Wales
     'Hangar 858': { map: 'uk', x:0.53, y:0.88, label_dir: 3 },
     'National Eisteddfod of Wales': { map: 'uk', x:0.43, y:0.87 },
-    '.Hangar 858': { map: 'uk', x:0.5, y:0.83, label_dir: 3 },
+    '.Hangar 858': { map: 'uk', x:0.5, y:0.83 },
     '.National Eisteddfod of Wales': { map: 'uk', x:0.495, y:0.825 },
     'The Vaynol Estate': { map: 'uk', x:0.45, y:0.67, label_dir: 2 },
     'United Counties Showground': { map: 'uk', x:0.45, y:0.80, label_dir: 2 },
@@ -46,11 +46,18 @@ RSC.Locations = {
     // Elsewhere
     'Birmingham Repertory Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2 },
     'Malthouse Estate Warehouse, Brighton': { map: 'uk', x:0.73, y:0.89 },
-    'Newcastle': { map: 'uk', x:0.65, y: 0.5 },
 
-    '.King\u2019s Theatre': { map: 'uk', x:0.53, y: 0.405, label_dir: 3 },
-    '.Royal Highland Centre': { map: 'uk', x:0.525, y: 0.405, label_dir: 3 },
-    '.Royal Lyceum Theatre': { map: 'uk', x:0.53, y: 0.405, label_dir: 3 },
+    //'Newcastle': { map: 'uk', x:0.65, y: 0.5 },
+    '.Northern Stage': { map: 'uk', x: 0.65, y: 0.5 },
+    '.Sage Gateshead': { map: 'uk', x: 0.65, y: 0.5 },
+    '.Theatre Royal': { map: 'uk', x: 0.65, y: 0.5 },
+    'Northern Stage': { map: 'uk', x: 0.58, y: 0.48, label_dir: 1 },
+    'Sage Gateshead': { map: 'uk', x: 0.73, y: 0.49, label_dir: 2 },
+    'Theatre Royal': { map: 'uk', x: 0.64, y: 0.56, label_dir: 0 },
+
+    '.King\u2019s Theatre': { map: 'uk', x:0.53, y: 0.405 },
+    '.Royal Highland Centre': { map: 'uk', x:0.525, y: 0.405 },
+    '.Royal Lyceum Theatre': { map: 'uk', x:0.53, y: 0.405 },
     //'Edinburgh': { map: 'uk', x:0.53, y: 0.405, label_dir: 3 },
     'Royal Highland Centre': { map: 'uk', x:0.46, y: 0.42, label_dir: 1 },
     'Royal Lyceum Theatre': { map: 'uk', x:0.52, y: 0.34, label_dir: 2 },
@@ -127,12 +134,12 @@ RSC.Events = [
 
     // Newcastle
     [
-        { title: 'The Rest is Silence', location: 'Newcastle', start: '2012-06-26', end: '2012-06-30', sublocation: 'Northern Stage', type: 'other' },
-        { title: 'In A Pickle', location: 'Newcastle', start: '2012-06-27', end: '2012-06-30', sublocation: 'Northern Stage', type: 'other' }
+        { title: 'The Rest is Silence', location: 'Northern Stage', start: '2012-06-26', end: '2012-06-30', type: 'other' },
+        { title: 'In A Pickle', location: 'Northern Stage', start: '2012-06-27', end: '2012-06-30', type: 'other' }
     ],
-    { title: 'West Side Story', location: 'Newcastle', start: '2012-07-04', end: '2012-07-07', sublocation: 'Sage Gateshead', type: 'tragedy' },
-    { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Newcastle', start: '2012-07-12', end: '2012-07-14', sublocation: 'Northern Stage', type: 'tragedy' },
-    { title: 'Julius Caesar', location: 'Newcastle', start: '2012-07-19', end: '2012-07-28', sublocation: 'Theatre Royal', type: 'tragedy' },
+    { title: 'West Side Story', location: 'Sage Gateshead', start: '2012-07-04', end: '2012-07-07', type: 'tragedy' },
+    { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Northern Stage', start: '2012-07-12', end: '2012-07-14', type: 'tragedy' },
+    { title: 'Julius Caesar', location: 'Theatre Royal', start: '2012-07-19', end: '2012-07-28', type: 'tragedy' },
 
     // Edinburgh
     { title: '2008 : Macbeth', location: 'Royal Highland Centre', start: '2012-08-11', end: '2012-08-18', type: 'tragedy' },

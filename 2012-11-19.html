@@ -136,13 +136,7 @@
                 if (!$.isArray(e)) { e = [ e ]; }
                 $.each(e, function(i, e) {
                     loc = RSC.Locations[e.location];
-                    var name = e.title;
-                    name += '\n' + RSC.duration(e.start, e.end);
-                    if (e.sublocation) {
-                        name += '\n' + e.sublocation;
-                    } else {
-                        name += '\n' + e.location;
-                    }
+                    var name = [ e.title, RSC.duration(e.start, e.end), e.location ].join('\n')
                     out.push({ start: e.start, end: e.end, colour: RSC.Types[e.type], name: name });
                 });
                 var clock = new RSC.Clock(paper, loc.cx, loc.cy, 20, out);
