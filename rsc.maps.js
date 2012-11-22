@@ -57,10 +57,9 @@ $(function(){
         paper.circle(cx, cy, 5).attr({ fill: 'black', stroke: 'none' })
             .hover(function() { v.popup.toFront().show(); },
                 function() { v.popup.hide(); });
-        if (RSC.Locations['.' + i]) {
-            var real = RSC.Locations['.' + i],
-                real_cx = map.x + real.x * map.w,
-                real_cy = map.y + real.y * map.h;
+        if (v.surrogate) {
+            var real_cx = map.x + v.surrogate.x * map.w,
+                real_cy = map.y + v.surrogate.y * map.h;
             paper.path("M" + cx + "," + cy + " " + real_cx + "," + real_cy);
             paper.circle(real_cx, real_cy, 2).attr({ fill: "black", stroke: "none" });
         }
