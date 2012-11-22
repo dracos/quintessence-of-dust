@@ -4,21 +4,21 @@
 
 var RSC = (function(RSC) {
 
-RSC.animation_time = 500;
-RSC.running = 0;
+var animation_time = 500,
+    running = 0;
 
 RSC.run = function() {
-    if (RSC.running) {
+    if (running) {
         return;
     }
     var arr = $('select#date option');
     var i = 0, l = arr.length;
-    RSC.running = 1;
-    RSC.animation_time = 200;
+    running = 1;
+    animation_time = 200;
     (function iterator() {
         $('select#date').val(arr[i].value).change();
-        if(++i<l && RSC.running) {
-            setTimeout(iterator, RSC.animation_time);
+        if(++i<l && running) {
+            setTimeout(iterator, animation_time);
         } else {
             RSC.stop();
         }
@@ -26,8 +26,8 @@ RSC.run = function() {
 };
 
 RSC.stop = function() {
-    RSC.running = 0;
-    RSC.animation_time = 500;
+    running = 0;
+    animation_time = 500;
 };
 
 $(function(){
@@ -58,7 +58,7 @@ $(function(){
                 var d = $('#date').val(),
                     new_date = '2012-' + d.substring(3, 5) + '-' + d.substring(0, 2);
                 $.each(RSC.clocks, function(i, v) {
-                    v.set_date(new_date, last_date, RSC.animation_time);
+                    v.set_date(new_date, last_date, animation_time);
                 });
                 last_date = new_date;
             }

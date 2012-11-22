@@ -14,7 +14,7 @@ var maps = {
 
 $(function(){
 
-    var paper = RSC.paper = Raphael("map", 1200, 640);
+    var paper = Raphael("map", 1200, 640);
 
     // UK Map
     // RSC.Rect(paper, maps.uk, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
