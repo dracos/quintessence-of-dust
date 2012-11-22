@@ -12,7 +12,8 @@ RSC.run = function() {
         return;
     }
     var arr = $('select#date option');
-    var i = 0, l = arr.length;
+    var i = document.getElementById('date').selectedIndex,
+        l = arr.length;
     running = 1;
     animation_time = 200;
     (function iterator() {
