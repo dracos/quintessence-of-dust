@@ -22,21 +22,21 @@ RSC.Locations = {
 
     // Stratford
     'Royal Shakespeare Theatre': {
-        map: 'stratford', x:0.90, y:0.18, label_dir: 3, size: 'big',
-        surrogate: { map: 'stratford', x:0.80, y:0.28 }
+        map: 'stratford', x:0.79, y:0.33, label_dir: 3, size: 'big',
+        surrogate: { map: 'stratford', x:0.69, y:0.43 }
     },
-    'Courtyard Theatre': { map: 'stratford', x:0.20, y:0.75, label_dir: 3, size: 'medium' },
+    'Courtyard Theatre': { map: 'stratford', x:0.10, y:0.89, label_dir: 3, size: 'medium' },
     'Swan Theatre': {
-        map: 'stratford', x:0.84, y:0.47, label_dir: 0, size: 'medium',
-        surrogate: { map: 'stratford', x:0.74, y:0.37 }
+        map: 'stratford', x:0.73, y:0.62, label_dir: 0, size: 'medium',
+        surrogate: { map: 'stratford', x:0.63, y:0.52 }
     },
     'Swan Room': {
-        map: 'stratford', x:0.59, y:0.43, size: 'small',
-        surrogate: { map: 'stratford', x:0.69, y:0.33 }
+        map: 'stratford', x:0.48, y:0.58, size: 'small',
+        surrogate: { map: 'stratford', x:0.58, y:0.48 }
     },
     'PACCAR Room': {
-        map: 'stratford', x:0.65, y:0.13, label_dir: 2, size: 'small',
-        surrogate: { map: 'stratford', x:0.75, y:0.23 }
+        map: 'stratford', x:0.54, y:0.28, label_dir: 2, size: 'small',
+        surrogate: { map: 'stratford', x:0.64, y:0.38 }
     },
 
     // London
