@@ -4,6 +4,12 @@
 
 var RSC = (function(RSC) {
 
+RSC.Sizes = {
+    'big': 30,
+    'medium': 20,
+    'small': 10
+};
+
 RSC.Types = {
     'comedy': '#006600',
     'history': '#990000',
@@ -18,50 +24,50 @@ RSC.Locations = {
     '.Swan Theatre': { map: 'stratford', x:0.74, y:0.37 },
     '.Swan Room': { map: 'stratford', x:0.69, y:0.33 },
     '.PACCAR Room': { map: 'stratford', x:0.75, y:0.23 },
-    'Royal Shakespeare Theatre': { map: 'stratford', x:0.90, y:0.18, label_dir: 3 },
-    'Courtyard Theatre': { map: 'stratford', x:0.20, y:0.75, label_dir: 3 },
-    'Swan Theatre': { map: 'stratford', x:0.84, y:0.47, label_dir: 0 },
-    'Swan Room': { map: 'stratford', x:0.59, y:0.43 },
-    'PACCAR Room': { map: 'stratford', x:0.65, y:0.13, label_dir: 2 },
+    'Royal Shakespeare Theatre': { map: 'stratford', x:0.90, y:0.18, label_dir: 3, size: 'big' },
+    'Courtyard Theatre': { map: 'stratford', x:0.20, y:0.75, label_dir: 3, size: 'medium' },
+    'Swan Theatre': { map: 'stratford', x:0.84, y:0.47, label_dir: 0, size: 'medium' },
+    'Swan Room': { map: 'stratford', x:0.59, y:0.43, size: 'small' },
+    'PACCAR Room': { map: 'stratford', x:0.65, y:0.13, label_dir: 2, size: 'small' },
 
     // London
-    'Roundhouse': { map: 'london', x:0.37, y: (0.14-0.1)*10/6 },
-    'Globe': { map: 'london', x:0.58, y: (0.46-0.1)*10/6, label_dir: 3 },
-    'National Theatre': { map: 'london', x:0.52, y: (0.47-0.1)*10/6, label_dir: 0 },
-    'Almeida Theatre': { map: 'london', x:0.55, y: (0.17-0.1)*10/6 },
-    'Barbican': { map: 'london', x:0.59, y: (0.355-0.1)*10/6, label_dir: 3 },
-    'Riverside Studios': { map: 'london', x:0.08, y: (0.64-0.1)*10/6, label_dir: 2 },
-    'Stratford Circus': { map: 'london', x:0.96, y: (0.14-0.1)*10/6 },
-    'Noël Coward Theatre': { map: 'london', x:0.47, y: (0.44-0.1)*10/6 },
-    'Royal Opera House': { map: 'london', x:0.485, y: (0.41-0.1)*10/6, label_dir: 2 },
+    'Roundhouse': { map: 'london', x:0.37, y: (0.14-0.1)*10/6, size: 'big' },
+    'Globe': { map: 'london', x:0.58, y: (0.46-0.1)*10/6, label_dir: 3, size: 'big' },
+    'National Theatre': { map: 'london', x:0.52, y: (0.47-0.1)*10/6, label_dir: 0, size: 'big' },
+    'Almeida Theatre': { map: 'london', x:0.55, y: (0.17-0.1)*10/6, size: 'medium' },
+    'Barbican': { map: 'london', x:0.59, y: (0.355-0.1)*10/6, label_dir: 3, size: 'medium' },
+    'Riverside Studios': { map: 'london', x:0.08, y: (0.64-0.1)*10/6, label_dir: 2, size: 'small' },
+    'Stratford Circus': { map: 'london', x:0.96, y: (0.14-0.1)*10/6, size: 'small' },
+    'Noël Coward Theatre': { map: 'london', x:0.47, y: (0.44-0.1)*10/6, size: 'medium' },
+    'Royal Opera House': { map: 'london', x:0.485, y: (0.41-0.1)*10/6, label_dir: 2, size: 'big' },
 
     // Wales
-    'Hangar 858': { map: 'uk', x:0.53, y:0.88, label_dir: 3 },
-    'National Eisteddfod of Wales': { map: 'uk', x:0.43, y:0.87 },
+    'Hangar 858': { map: 'uk', x:0.53, y:0.88, label_dir: 3, size: 'medium' },
+    'National Eisteddfod of Wales': { map: 'uk', x:0.43, y:0.87, size: 'big' },
     '.Hangar 858': { map: 'uk', x:0.5, y:0.83 },
     '.National Eisteddfod of Wales': { map: 'uk', x:0.495, y:0.825 },
-    'The Vaynol Estate': { map: 'uk', x:0.45, y:0.67, label_dir: 2 },
-    'United Counties Showground': { map: 'uk', x:0.45, y:0.80, label_dir: 2 },
+    'The Vaynol Estate': { map: 'uk', x:0.45, y:0.67, label_dir: 2, size: 'medium' },
+    'United Counties Showground': { map: 'uk', x:0.45, y:0.80, label_dir: 2, size: 'big' },
 
     // Elsewhere
-    'Birmingham Repertory Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2 },
-    'Malthouse Estate Warehouse, Brighton': { map: 'uk', x:0.73, y:0.89 },
+    'Birmingham Repertory Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2, size: 'medium' },
+    'Malthouse Estate Warehouse, Brighton': { map: 'uk', x:0.73, y:0.89, size: 'small' },
 
     //'Newcastle': { map: 'uk', x:0.65, y: 0.5 },
     '.Northern Stage': { map: 'uk', x: 0.65, y: 0.5 },
     '.Sage Gateshead': { map: 'uk', x: 0.65, y: 0.5 },
     '.Theatre Royal': { map: 'uk', x: 0.65, y: 0.5 },
-    'Northern Stage': { map: 'uk', x: 0.58, y: 0.48, label_dir: 1 },
-    'Sage Gateshead': { map: 'uk', x: 0.73, y: 0.49, label_dir: 2 },
-    'Theatre Royal': { map: 'uk', x: 0.64, y: 0.56, label_dir: 0 },
+    'Northern Stage': { map: 'uk', x: 0.58, y: 0.48, label_dir: 1, size: 'big' },
+    'Sage Gateshead': { map: 'uk', x: 0.73, y: 0.49, label_dir: 2, size: 'medium' },
+    'Theatre Royal': { map: 'uk', x: 0.64, y: 0.56, label_dir: 0, size: 'medium' },
 
     '.King\u2019s Theatre': { map: 'uk', x:0.53, y: 0.405 },
     '.Royal Highland Centre': { map: 'uk', x:0.525, y: 0.405 },
     '.Royal Lyceum Theatre': { map: 'uk', x:0.53, y: 0.405 },
     //'Edinburgh': { map: 'uk', x:0.53, y: 0.405, label_dir: 3 },
-    'Royal Highland Centre': { map: 'uk', x:0.46, y: 0.42, label_dir: 1 },
-    'Royal Lyceum Theatre': { map: 'uk', x:0.52, y: 0.34, label_dir: 2 },
-    'King\u2019s Theatre': { map: 'uk', x:0.60, y: 0.38, label_dir: 3 },
+    'Royal Highland Centre': { map: 'uk', x:0.46, y: 0.42, label_dir: 1, size: 'medium' },
+    'Royal Lyceum Theatre': { map: 'uk', x:0.52, y: 0.34, label_dir: 2, size: 'medium' },
+    'King\u2019s Theatre': { map: 'uk', x:0.60, y: 0.38, label_dir: 3, size: 'big' },
 };
 
 RSC.Events = [

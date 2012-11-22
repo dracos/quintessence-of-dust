@@ -76,7 +76,7 @@ $(function(){
             var name = [ e.title, RSC.duration(e.start, e.end), e.location ].join('\n')
             out.push({ start: e.start, end: e.end, colour: RSC.Types[e.type], name: name });
         });
-        var clock = new RSC.Clock(paper, loc.cx, loc.cy, 20, out);
+        var clock = new RSC.Clock(paper, loc.cx, loc.cy, RSC.Sizes[loc.size], out);
         RSC.clocks.push(clock);
     });
 
