@@ -28,7 +28,7 @@ $(function(){
         'fill-opacity': 0.2
     };
     // Stratford map
-    paper.text(maps.stratford.x+maps.stratford.w+16, maps.stratford.y+maps.stratford.h-48, "Stratford").transform("R90").attr({ 'font-family': 'Baskerville', 'font-size': '24px' });
+    paper.text(maps.stratford.x+maps.stratford.w+16, maps.stratford.y+maps.stratford.h-104, "Stratford-upon-Avon").transform("R90").attr({ 'font-family': 'Baskerville', 'font-size': '24px' });
     RSC.Rect(paper, maps.stratford, 0).attr({ stroke: 'none' }).glow({ });
     RSC.Rect(paper, maps.stratfordOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
     paper.path("M" + (maps.stratford.x-1)+','+(maps.stratford.y+maps.stratford.h+1)+" " + (maps.stratfordOnUK.x) + ',' + (maps.stratfordOnUK.y+maps.stratfordOnUK.h)).attr(zoomed);
