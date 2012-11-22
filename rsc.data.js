@@ -32,7 +32,7 @@ RSC.Locations = {
 
     // London
     'Roundhouse': { map: 'london', x:0.37, y: (0.14-0.1)*10/6, size: 'big' },
-    'Globe': { map: 'london', x:0.58, y: (0.46-0.1)*10/6, label_dir: 3, size: 'big' },
+    'Shakespeare\u2019s Globe': { map: 'london', x:0.58, y: (0.46-0.1)*10/6, label_dir: 3, size: 'big' },
     'National Theatre': { map: 'london', x:0.52, y: (0.47-0.1)*10/6, label_dir: 0, size: 'big' },
     'Almeida Theatre': { map: 'london', x:0.55, y: (0.17-0.1)*10/6, size: 'medium' },
     'Barbican': { map: 'london', x:0.59, y: (0.355-0.1)*10/6, label_dir: 3, size: 'medium' },
@@ -108,7 +108,7 @@ RSC.Events = [
     { title: 'Pericles', location: 'Courtyard Theatre', start: '2012-10-05', end: '2012-10-07', type: 'problem' },
 
     // London
-    { title: 'Globe to Globe', location: 'Globe', start: '2012-04-21', end: '2012-06-09', type: 'other' },
+    { title: 'Globe to Globe', location: 'Shakespeare\u2019s Globe', start: '2012-04-21', end: '2012-06-09', type: 'other' },
     { title: 'Falstaff', location: 'Royal Opera House', start: '2012-05-15', end: '2012-05-30', type: 'other' },
     { title: 'Two Roses for Richard III', location: 'Roundhouse', start: '2012-05-18', end: '2012-05-23', type: 'other' },
     { title: 'Cymbeline', location: 'Barbican', start: '2012-05-29', end: '2012-06-02', type: 'other' },
