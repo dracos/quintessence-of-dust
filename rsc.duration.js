@@ -20,6 +20,9 @@ RSC.duration = function(s, e) {
     s_d = parseInt(s.substring(8,10), 10);
     e_d = parseInt(e.substring(8,10), 10);
 
+    if (s_d == e_d && s_m == e_m) {
+        return ordinal(s_d) + ' ' + monthNames[s_m];
+    }
     if (s_m == e_m) {
         return ordinal(s_d) + '\u2013' + ordinal(e_d) + ' ' + monthNames[s_m];
     }
