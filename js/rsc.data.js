@@ -21,6 +21,7 @@ var t = {
 RSC.Locations = {
 
     'Olympic Stadium': { map: 'london', x:0.888, y:0.13, transparent: true },
+    'Buckingham Palace': { map: 'london', x:0.406, y:0.705, transparent: true },
 
     // Stratford
     'Royal Shakespeare Theatre': {
@@ -53,8 +54,9 @@ RSC.Locations = {
     'Royal Opera House': { map: 'london', x:0.485, y: 0.517, label_dir: 2, size: 'big' },
 
     // Wales
+    'Vale of Glamorgan (2 venues)': { map: 'uk', x: 0.4975, y:0.8275, transparent: true, label_dir: 3 },
     'Hangar 858, Vale of Glamorgan': {
-        map: 'uk', x:0.38, y:0.88, label_dir: 3, size: 'medium',
+        map: 'uk', x:0.38, y:0.88, label_dir: 0, size: 'medium',
         surrogate: { map: 'uk', x:0.5, y:0.83 }
     },
     'National Eisteddfod of Wales, Vale of Glamorgan': {
@@ -68,7 +70,7 @@ RSC.Locations = {
     'Birmingham Repertory Theatre\nat the Old Rep Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2, size: 'medium' },
     'Malthouse Estate Warehouse, Brighton': { map: 'uk', x:0.73, y:0.89, size: 'small' },
 
-    //'Newcastle': { map: 'uk', x:0.65, y: 0.5 },
+    'Newcastle (3 venues)': { map: 'uk', x:0.64, y: 0.5, transparent: true },
     'Northern Stage, Newcastle': {
         map: 'uk', x: 0.73, y: 0.43, label_dir: 2, size: 'big',
         surrogate: { map: 'uk', x: 0.64, y: 0.5 }
@@ -82,7 +84,7 @@ RSC.Locations = {
         surrogate: { map: 'uk', x: 0.64, y: 0.5 }
     },
 
-    //'Edinburgh': { map: 'uk', x:0.53, y: 0.405, label_dir: 3 },
+    'Edinburgh (3 venues)': { map: 'uk', x:0.525, y: 0.405, transparent: true },
     'Royal Highland Centre, Edinburgh': {
         map: 'uk', x:0.66, y: 0.28, label_dir: 1, size: 'medium',
         surrogate: { map: 'uk', x:0.525, y: 0.405 }
