@@ -63,7 +63,7 @@ RSC.Locations = {
     'United Counties Showground, Carmarthen': { map: 'uk', x:0.45, y:0.80, label_dir: 2, size: 'big' },
 
     // Elsewhere
-    'Birmingham Repertory Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2, size: 'medium' },
+    'Birmingham Repertory Theatre\nat the Old Rep Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2, size: 'medium' },
     'Malthouse Estate Warehouse, Brighton': { map: 'uk', x:0.73, y:0.89, size: 'small' },
 
     //'Newcastle': { map: 'uk', x:0.65, y: 0.5 },
@@ -194,7 +194,7 @@ RSC.Events = [
     { title: "A Midsummer Night\u2019s Dream (As You Like It)", location: 'King\u2019s Theatre, Edinburgh', start: '2012-08-24', end: '2012-08-26', col: t.comedy },
 
     // Birmingham
-    { title: 'Forests', location: 'Birmingham Repertory Theatre', start: '2012-08-31', end: '2012-09-15', col: t.other },
+    { title: 'Forests', location: 'Birmingham Repertory Theatre\nat the Old Rep Theatre', start: '2012-08-31', end: '2012-09-15', col: t.other },
 
     // Wales
     { title: 'Y Storm', location: 'National Eisteddfod of Wales, Vale of Glamorgan', start: '2012-08-07', end: '2012-08-11', col: t.problem },
