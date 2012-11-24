@@ -23,7 +23,7 @@ RSC.Clock = function(paper, x, y, r, segs) {
             min = curr_min,
             max = curr_min + (days/total_days*360),
             middle = min+(max-min)/2,
-            xm = segs.length==1 ? x-r+4 : x + (r-2) * Math.sin(middle * Math.PI/180),
+            xm = seg.label_dir ? x+r-4 : (segs.length==1 ? x-r+4 : x + (r-2) * Math.sin(middle * Math.PI/180)),
             ym = segs.length==1 ? y : y - (r-2) * Math.cos(middle * Math.PI/180),
             seg = $.extend(seg, {
                 days: days,
@@ -34,7 +34,11 @@ RSC.Clock = function(paper, x, y, r, segs) {
                 todo: paper.path().attr({ segment: [ x, y, 0, min, max ], opacity: 0.5, fill: seg.colour, stroke: 'none' }),
                 done: paper.path().attr({ segment: [ x, y, 0, min, min ], fill: seg.colour, stroke: 'none' })
             }),
-            dir = segs.length==1 ? 1 : (middle >= 45 && middle < 135 ? 3 : (middle >= 135 && middle < 225 ? 0 : (middle >= 225 && middle < 315 ? 1 : 2))),
+            dir = seg.label_dir ? seg.label_dir :
+                (segs.length==1 ? 1 :
+                 (middle >= 45 && middle < 135 ? 3 :
+                  (middle >= 135 && middle < 225 ? 0 :
+                   (middle >= 225 && middle < 315 ? 1 : 2)))),
             _label = paper.popup(x+r, y, seg.name).update(seg.middle.x, seg.middle.y, dir).hide()
                 .hover(function(){ _label.toFront().show(); },
                     function(){ _label.hide(); }),

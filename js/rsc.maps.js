@@ -77,7 +77,7 @@ $(function(){
         $.each(e, function(i, e) {
             loc = RSC.Locations[e.location];
             var name = [ e.title, RSC.duration(e.start, e.end), e.location ].join('\n')
-            out.push({ start: e.start, end: e.end, colour: e.col, name: name });
+            out.push({ start: e.start, end: e.end, colour: e.col, name: name, label_dir: e.label_dir });
         });
         var clock = new RSC.Clock(paper, loc.cx, loc.cy, RSC.Sizes[loc.size], out);
         RSC.clocks.push(clock);

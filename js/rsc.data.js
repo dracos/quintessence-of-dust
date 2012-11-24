@@ -201,8 +201,8 @@ RSC.Events = [
     { title: 'Forests', location: 'Birmingham Repertory Theatre\nat the Old Rep Theatre', start: '2012-08-31', end: '2012-09-15', col: t.other },
 
     // Wales
-    { title: 'Y Storm', location: 'National Eisteddfod of Wales, Vale of Glamorgan', start: '2012-08-07', end: '2012-08-11', col: t.problem },
-    { title: 'Coriolan/us', location: 'Hangar 858, Vale of Glamorgan', start: '2012-08-09', end: '2012-08-18', col: t.tragedy },
+    { title: 'Y Storm', location: 'National Eisteddfod of Wales, Vale of Glamorgan', start: '2012-08-07', end: '2012-08-11', col: t.problem, label_dir: 3 },
+    { title: 'Coriolan/us', location: 'Hangar 858, Vale of Glamorgan', start: '2012-08-09', end: '2012-08-18', col: t.tragedy, label_dir: 3 },
     { title: 'Y Storm', location: 'United Counties Showground, Carmarthen', start: '2012-09-18', end: '2012-09-21', col: t.problem },
     { title: 'Y Storm', location: 'The Vaynol Estate, Gwynedd', start: '2012-10-02', end: '2012-10-06', col: t.problem }
 ];
