@@ -13,14 +13,20 @@ RSC.Clock = function(paper, x, y, r, segs) {
     this.y = y;
     this.r = r;
     this.segs = segs;
+    var total_days = 0;
     $.each(segs, function(i, seg) {
-        var min = i * 360 / segs.length,
-            max = (i+1) * 360 / segs.length,
+        total_days += days_diff(seg.start, seg.end);
+    });
+    var curr_min = 0;
+    $.each(segs, function(i, seg) {
+        var days = days_diff(seg.start, seg.end),
+            min = curr_min,
+            max = curr_min + (days/total_days*360),
             middle = min+(max-min)/2,
             xm = segs.length==1 ? x-r+4 : x + (r-2) * Math.sin(middle * Math.PI/180),
             ym = segs.length==1 ? y : y - (r-2) * Math.cos(middle * Math.PI/180),
             seg = $.extend(seg, {
-                days: days_diff(seg.start, seg.end),
+                days: days,
                 min: min,
                 max: max,
                 middle: { x: xm, y: ym },
@@ -38,6 +44,7 @@ RSC.Clock = function(paper, x, y, r, segs) {
                 function() { _label.toFront().show(); },
                 function() { _label.hide(); }
             );
+        curr_min = max;
     });
 };
 
