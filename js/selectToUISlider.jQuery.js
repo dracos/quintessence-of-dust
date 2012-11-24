@@ -88,6 +88,7 @@ jQuery.fn.selectToUISlider = function(settings){
 				var textval = ttText(ui.value);
 				thisHandle
 					.attr('aria-valuetext', textval)
+                    .attr('data-original-title', textval) // MPS addition
 					.attr('aria-valuenow', ui.value)
 					.find('.ui-slider-tooltip .ttContent')
 						.text( textval );

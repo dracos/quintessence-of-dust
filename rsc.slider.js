@@ -58,9 +58,8 @@ $(function(){
                 var textval = selectOptions[ui.value].text;
                 thisHandle
                     .attr('aria-valuetext', textval)
-                    .attr('aria-valuenow', ui.value)
-                    .find('.ui-slider-tooltip .ttContent')
-                        .text( textval );
+                    .attr('data-original-title', textval)
+                    .attr('aria-valuenow', ui.value);
                 var d = $('#date').val(),
                     new_date = '2012-' + d.substring(3, 5) + '-' + d.substring(0, 2);
                 $.each(RSC.clocks, function(i, v) {
@@ -70,6 +69,15 @@ $(function(){
             }
         }
     }).hide();
+    $('#handle_date').tooltip({
+        title: 'Date',
+        placement: function(tip,el) {
+            if ($(el).attr('aria-valuenow') > 180) {
+                return 'left';
+            }
+            return 'right';
+        }
+    });
 
     setTimeout(function() {
         $('select#date').val('13/08').change();
