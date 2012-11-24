@@ -55,11 +55,11 @@ RSC.Locations = {
 
     // Wales
     'Vale of Glamorgan (2 venues)': { map: 'uk', x: 0.4975, y:0.8275, transparent: true, label_dir: 3 },
-    'Hangar 858, Vale of Glamorgan': {
+    'Hangar 858,\nVale of Glamorgan': {
         map: 'uk', x:0.38, y:0.88, label_dir: 0, size: 'medium',
         surrogate: { map: 'uk', x:0.5, y:0.83 }
     },
-    'National Eisteddfod of Wales, Vale of Glamorgan': {
+    'National Eisteddfod of Wales,\nVale of Glamorgan': {
         map: 'uk', x:0.28, y:0.86, size: 'big',
         surrogate: { map: 'uk', x:0.495, y:0.825 }
     },
@@ -201,9 +201,9 @@ RSC.Events = [
     { title: 'Forests', location: 'Birmingham Repertory Theatre\nat the Old Rep Theatre', start: '2012-08-31', end: '2012-09-15', col: t.other },
 
     // Wales
-    { title: 'Y Storm', location: 'National Eisteddfod of Wales, Vale of Glamorgan', start: '2012-08-07', end: '2012-08-11', col: t.problem, label_dir: 3 },
-    { title: 'Coriolan/us', location: 'Hangar 858, Vale of Glamorgan', start: '2012-08-09', end: '2012-08-18', col: t.tragedy, label_dir: 3 },
-    { title: 'Y Storm', location: 'United Counties Showground, Carmarthen', start: '2012-09-18', end: '2012-09-21', col: t.problem },
+    { title: 'Y Storm', location: 'National Eisteddfod of Wales,\nVale of Glamorgan', start: '2012-08-07', end: '2012-08-11', col: t.problem, label_dir: 3 },
+    { title: 'Coriolan/us', location: 'Hangar 858,\nVale of Glamorgan', start: '2012-08-09', end: '2012-08-18', col: t.tragedy, label_dir: 3 },
+    { title: 'Y Storm', location: 'United Counties Showground, Carmarthen', start: '2012-09-18', end: '2012-09-21', col: t.problem, label_dir: 3 },
     { title: 'Y Storm', location: 'The Vaynol Estate, Gwynedd', start: '2012-10-02', end: '2012-10-06', col: t.problem }
 ];
 
