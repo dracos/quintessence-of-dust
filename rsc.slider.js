@@ -7,7 +7,8 @@ var RSC = (function(RSC) {
 var animation_time = 500,
     running = 0;
 
-RSC.run = function() {
+function run() {
+    $(this).addClass('active');
     if (running) {
         return;
     }
@@ -21,17 +22,21 @@ RSC.run = function() {
         if(++i<l && running) {
             setTimeout(iterator, animation_time);
         } else {
-            RSC.stop();
+            stop();
         }
     })();
-};
+}
 
-RSC.stop = function() {
+function stop() {
+    $('#btn-play').removeClass('active');
     running = 0;
     animation_time = 500;
-};
+}
 
 $(function(){
+
+    $('#btn-play').click(run);
+    $('#btn-pause').click(stop);
 
     var selectOptions = (function(){
         var opts = [];

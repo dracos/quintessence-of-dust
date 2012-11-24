@@ -2,20 +2,32 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>RSC mapping project</title>
-        <link rel="Stylesheet" href="css/ui.slider.extras.css" type="text/css" />
+        <title>Quintessence of Dust</title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/ui.slider.extras.css">
         <style type="text/css">
         label { display: none; }
-        .ui-slider { margin: 4em; }
+        .ui-slider { margin: 0 4.5em 4em 0; z-index: 100; }
         #date_slider { font-size: 70%; }
-        .ui-slider dt { border-bottom: none; padding-bottom: 0.2em; top: 0; }
+        .ui-slider dt { background-color: white; height: auto; border-bottom: none; padding-bottom: 0.2em; top: 0; }
         .ui-slider dt:nth-of-type(odd) { background-color: #666; height: auto; }
         .ui-slider dt:nth-of-type(odd) span { background-color: #666; color: white; }
         #map {
             clear: both;
-            margin: 4em auto 2em;
-            width: 1200px;
-            padding: 2px 2px 0;
+            position: absolute;
+            width: 1180px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            margin-left: -590px;
+            margin-top: -270px;
+        }
+        #controls {
+            float: right;
+        }
+        #controls button {
+            display: block;
+            margin-bottom: 2px;
         }
         </style>
         <link href="jquery-ui/css/smoothness/jquery-ui-1.9.1.custom.css" rel="stylesheet">
@@ -25,6 +37,7 @@
         <script src="jquery-ui/js/jquery-1.8.2.js"></script>
         <script src="jquery-ui/js/jquery-ui-1.9.1.custom.min.js"></script>
         <script src="js/selectToUISlider.jQuery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="rsc.clock.js"></script>
         <script src="rsc.data.js"></script>
         <script src="rsc.rect.js"></script>
@@ -33,9 +46,9 @@
         <script src="rsc.maps.js"></script>
     </head>
     <body>
-        <div style="float:left">
-            <button onclick="RSC.run();">Run</button>
-            <br><button onclick="RSC.stop();">Stop</button>
+        <div id="controls">
+            <button class="btn" id="btn-play"> <i class="icon-play"></i> </button>
+            <button class="btn" id="btn-pause"> <i class="icon-pause"></i> </button>
         </div>
         <div id="date_slider">
             <label for="date">From:</label>

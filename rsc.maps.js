@@ -5,21 +5,22 @@
 var RSC = (function(RSC) {
 
 var maps = {
-    'stratford': { x: 600, y: 10, w: 230, h: 230 },
-    'london': { 'x': 440, 'y': 310, 'w': 750, 'h': 300 },
-    'uk': { x: 2, y: 2, w: 0.8*641, h: 0.8*794 },
+    'stratford': { x: 500, y: 20, w: 230, h: 230 },
+    'london': { 'x': 420, 'y': 280, 'w': 750, 'h': 300 },
+    'uk': { x: 0, y: 0, w: 0.75*641, h: 0.75*794 },
     'stratfordOnUK': { x: 322, y: 492, w: 4, h: 4 },
     'londonOnUK': { x: 377, y: 528, w: 10, h: 5 }
 };
 
 $(function(){
 
-    var paper = Raphael("map", 1200, 640);
+    var paper = Raphael("map", 1180, 600);
 
     // UK Map
     // RSC.Rect(paper, maps.uk, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
     paper.image('i/gb-watercolour.png', maps.uk.x, maps.uk.y, maps.uk.w, maps.uk.h);
-    paper.text(maps.uk.x+16, maps.uk.y+64, "World Shakespeare\nFestival").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '48px', 'text-anchor': 'start' });
+    //paper.text(880, 32, "World Shakespeare\nFestival Timeline").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '32px', 'text-anchor': 'start' });
+    paper.text(780, 32, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '32px', 'text-anchor': 'start' });
 
     var zoomed = {
         'stroke': 'black',
