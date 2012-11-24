@@ -52,11 +52,11 @@ RSC.Locations = {
 
     // Wales
     'Hangar 858, Vale of Glamorgan': {
-        map: 'uk', x:0.53, y:0.88, label_dir: 3, size: 'medium',
+        map: 'uk', x:0.38, y:0.88, label_dir: 3, size: 'medium',
         surrogate: { map: 'uk', x:0.5, y:0.83 }
     },
     'National Eisteddfod of Wales, Vale of Glamorgan': {
-        map: 'uk', x:0.43, y:0.87, size: 'big',
+        map: 'uk', x:0.28, y:0.86, size: 'big',
         surrogate: { map: 'uk', x:0.495, y:0.825 }
     },
     'The Vaynol Estate, Gwynedd': { map: 'uk', x:0.45, y:0.67, label_dir: 2, size: 'medium' },
@@ -68,29 +68,29 @@ RSC.Locations = {
 
     //'Newcastle': { map: 'uk', x:0.65, y: 0.5 },
     'Northern Stage, Newcastle': {
-        map: 'uk', x: 0.58, y: 0.48, label_dir: 1, size: 'big',
-        surrogate: { map: 'uk', x: 0.65, y: 0.5 }
-    },
-    'Sage Gateshead': {
-        map: 'uk', x: 0.73, y: 0.49, label_dir: 2, size: 'medium',
-        surrogate: { map: 'uk', x: 0.65, y: 0.5 }
+        map: 'uk', x: 0.73, y: 0.43, label_dir: 2, size: 'big',
+        surrogate: { map: 'uk', x: 0.64, y: 0.5 }
     },
     'Theatre Royal, Newcastle': {
-        map: 'uk', x: 0.64, y: 0.56, label_dir: 0, size: 'medium',
-        surrogate: { map: 'uk', x: 0.65, y: 0.5 }
+        map: 'uk', x: 0.76, y: 0.485, label_dir: 1, size: 'medium',
+        surrogate: { map: 'uk', x: 0.64, y: 0.5 }
+    },
+    'Sage Gateshead': {
+        map: 'uk', x: 0.75, y: 0.54, label_dir: 0, size: 'medium',
+        surrogate: { map: 'uk', x: 0.64, y: 0.5 }
     },
 
     //'Edinburgh': { map: 'uk', x:0.53, y: 0.405, label_dir: 3 },
     'Royal Highland Centre, Edinburgh': {
-        map: 'uk', x:0.46, y: 0.42, label_dir: 1, size: 'medium',
+        map: 'uk', x:0.66, y: 0.28, label_dir: 1, size: 'medium',
         surrogate: { map: 'uk', x:0.525, y: 0.405 }
     },
     'Royal Lyceum Theatre, Edinburgh': {
-        map: 'uk', x:0.52, y: 0.34, label_dir: 2, size: 'medium',
+        map: 'uk', x:0.75, y: 0.28, label_dir: 2, size: 'medium',
         surrogate:{ map: 'uk', x:0.53, y: 0.405 }
     },
     'King\u2019s Theatre, Edinburgh': {
-        map: 'uk', x:0.60, y: 0.38, label_dir: 3, size: 'big',
+        map: 'uk', x:0.70, y: 0.36, label_dir: 3, size: 'big',
         surrogate: { map: 'uk', x:0.53, y: 0.405 }
     }
 };
