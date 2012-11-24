@@ -34,7 +34,7 @@ RSC.Clock = function(paper, x, y, r, segs) {
                 todo: paper.path().attr({ segment: [ x, y, 0, min, max ], opacity: 0.5, fill: seg.colour, stroke: 'none' }),
                 done: paper.path().attr({ segment: [ x, y, 0, min, min ], fill: seg.colour, stroke: 'none' })
             }),
-            dir = middle >= 180 ? 1 : 3,
+            dir = segs.length==1 ? 1 : (middle >= 45 && middle < 135 ? 3 : (middle >= 135 && middle < 225 ? 0 : (middle >= 225 && middle < 315 ? 1 : 2))),
             _label = paper.popup(x+r, y, seg.name).update(seg.middle.x, seg.middle.y, dir).hide()
                 .hover(function(){ _label.toFront().show(); },
                     function(){ _label.hide(); }),
