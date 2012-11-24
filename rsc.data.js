@@ -20,6 +20,8 @@ var t = {
 
 RSC.Locations = {
 
+    'Olympic Stadium': { map: 'london', x:0.888, y:0.13, transparent: true },
+
     // Stratford
     'Royal Shakespeare Theatre': {
         map: 'stratford', x:0.79, y:0.33, label_dir: 3, size: 'big',
@@ -40,15 +42,15 @@ RSC.Locations = {
     },
 
     // London
-    'Roundhouse': { map: 'london', x:0.37, y: (0.14-0.1)*10/6, size: 'big' },
-    'Shakespeare\u2019s Globe': { map: 'london', x:0.58, y: (0.46-0.1)*10/6, label_dir: 3, size: 'big' },
-    'National Theatre': { map: 'london', x:0.52, y: (0.47-0.1)*10/6, label_dir: 0, size: 'big' },
-    'Almeida Theatre': { map: 'london', x:0.55, y: (0.17-0.1)*10/6, size: 'medium' },
-    'Barbican': { map: 'london', x:0.59, y: (0.355-0.1)*10/6, label_dir: 3, size: 'medium' },
-    'Riverside Studios': { map: 'london', x:0.08, y: (0.64-0.1)*10/6, label_dir: 2, size: 'small' },
-    'Stratford Circus': { map: 'london', x:0.96, y: (0.14-0.1)*10/6, size: 'small' },
-    'Noël Coward Theatre': { map: 'london', x:0.47, y: (0.44-0.1)*10/6, size: 'medium' },
-    'Royal Opera House': { map: 'london', x:0.485, y: (0.41-0.1)*10/6, label_dir: 2, size: 'big' },
+    'Roundhouse': { map: 'london', x:0.37, y: 0.067, size: 'big' },
+    'Shakespeare\u2019s Globe': { map: 'london', x:0.58, y: 0.6, label_dir: 3, size: 'big' },
+    'National Theatre': { map: 'london', x:0.52, y: 0.617, label_dir: 0, size: 'big' },
+    'Almeida Theatre': { map: 'london', x:0.55, y: 0.117, size: 'medium' },
+    'Barbican': { map: 'london', x:0.59, y: 0.425, label_dir: 3, size: 'medium' },
+    'Riverside Studios': { map: 'london', x:0.08, y: 0.9, label_dir: 2, size: 'small' },
+    'Stratford Circus': { map: 'london', x:0.96, y: 0.067, size: 'small' },
+    'Noël Coward Theatre': { map: 'london', x:0.47, y: 0.567, size: 'medium' },
+    'Royal Opera House': { map: 'london', x:0.485, y: 0.517, label_dir: 2, size: 'big' },
 
     // Wales
     'Hangar 858, Vale of Glamorgan': {

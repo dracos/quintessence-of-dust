@@ -55,9 +55,12 @@ $(function(){
         v.popup = paper.popup(cx, cy, i).update(cx, cy, v.label_dir).hide()
             .hover(function(){ v.popup.toFront().show(); },
                 function(){ v.popup.hide(); });
-        paper.circle(cx, cy, 5).attr({ fill: 'black', stroke: 'none' })
+        var c = paper.circle(cx, cy, 5).attr({ fill: 'black', stroke: 'none' })
             .hover(function() { v.popup.toFront().show(); },
                 function() { v.popup.hide(); });
+        if (v.transparent) {
+            c.attr({ opacity: 0 });
+        }
         if (v.surrogate) {
             var real_cx = map.x + v.surrogate.x * map.w,
                 real_cy = map.y + v.surrogate.y * map.h;
