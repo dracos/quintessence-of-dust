@@ -103,15 +103,32 @@ RSC.Events = [
         { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-03-30', end: '2012-05-19', col: t.problem }
     ],
     [
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-09-15', col: t.history },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-09-15', col: t.history },
-        { title: 'Romeo and Juliet in Baghdad', location: 'Swan Theatre', start: '2012-04-26', end: '2012-05-05', col: t.tragedy },
-        { title: 'Young Company Building Takeover', location: 'Swan Theatre', start: '2012-05-04', end: '2012-05-04', col: t.other },
-        { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-06-13', end: '2012-07-06', col: t.other },
-        { title: 'A Solider in Every Son - The Rise of the Aztecs', location: 'Swan Theatre', start: '2012-06-29', end: '2012-07-28', col: t.other },
-        { title: 'Henry V', location: 'Swan Theatre', start: '2012-07-24', end: '2012-07-24', col: t.history },
-        { title: 'Troilus and Cressida', location: 'Swan Theatre', start: '2012-08-03', end: '2012-08-18', col: t.tragedy }
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-20', col: t.history },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-21', col: t.history }
     ],
+    [
+        { title: 'Romeo and Juliet in Baghdad', location: 'Swan Theatre', start: '2012-04-26', end: '2012-05-05', col: t.tragedy },
+        { title: 'Young Company Building Takeover', location: 'Swan Theatre', start: '2012-05-04', end: '2012-05-04', col: t.other }
+    ],
+    [
+        { title: 'King John', location: 'Swan Theatre', start: '2012-05-08', end: '2012-06-23', col: t.history },
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-05-10', end: '2012-06-22', col: t.history },
+        { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-06-13', end: '2012-06-20', col: t.other }
+    ],
+    [
+        { title: 'A Solider in Every Son - The Rise of the Aztecs', location: 'Swan Theatre', start: '2012-06-29', end: '2012-07-28', col: t.other },
+        { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-07-06', end: '2012-07-06', col: t.other },
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-07-09', end: '2012-07-24', col: t.history },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-07-12', end: '2012-07-27', col: t.history },
+        { title: 'Henry V', location: 'Swan Theatre', start: '2012-07-24', end: '2012-07-24', col: t.history }
+    ],
+    { title: 'Troilus and Cressida', location: 'Swan Theatre', start: '2012-08-03', end: '2012-08-18', col: t.tragedy },
+    [
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-08-21', end: '2012-09-15', col: t.history },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-08-22', end: '2012-09-15', col: t.history }
+    ],
+    { title: 'A Tender Thing', location: 'Swan Theatre', start: '2012-09-27', end: '2012-10-20', col: t.other },
+
     { title: 'Of All the People in All the World, Stan’s Café', location: 'PACCAR Room', start: '2012-04-14', end: '2012-07-21', col: t.other },
     // Living Walls?
     { title: 'Two Roses for Richard III', location: 'Courtyard Theatre', start: '2012-05-07', end: '2012-05-12', col: t.other },
@@ -129,7 +146,6 @@ RSC.Events = [
     ],
     { title: 'Pilot Night', location: 'Courtyard Theatre', start: '2012-07-12', end: '2012-07-12', col: t.other },
     { title: 'Much Ado About Nothing', location: 'Courtyard Theatre', start: '2012-07-26', end: '2012-09-15', col: t.comedy },
-    { title: 'A Tender Thing', location: 'Swan Theatre', start: '2012-09-27', end: '2012-10-20', col: t.other },
     { title: 'Pericles', location: 'Courtyard Theatre', start: '2012-10-05', end: '2012-10-07', col: t.problem },
 
     // London

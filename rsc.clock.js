@@ -4,7 +4,7 @@
 
 var RSC = (function(RSC) {
 
-RSC.Clock = function(paper, x, y, r, segs) { // starts, ends, cols, texts) {
+RSC.Clock = function(paper, x, y, r, segs) {
     if (paper.customAttributes.segment === undefined) {
         paper.customAttributes.segment = RSC.Clock.segment;
     }
@@ -80,7 +80,7 @@ function days_diff(from, to) {
     from = new Date(from.substring(0,4), from.substring(5,7)-1, from.substring(8,10));
     to = new Date(to.substring(0,4), to.substring(5,7)-1, to.substring(8,10));
     // I know, but it's good enough
-    return (to-from)/86400/1000 + 1;
+    return Math.round( (to-from)/86400/1000 + 1 );
 }
 
 return RSC;
