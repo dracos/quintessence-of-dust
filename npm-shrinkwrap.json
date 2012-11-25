@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "uglify-js": {
+      "version": "2.2.0",
+      "dependencies": {
+        "source-map": {
+          "version": "0.1.8",
+          "dependencies": {
+            "amdefine": {
+              "version": "0.0.4"
+            }
+          }
+        },
+        "optimist": {
+          "version": "0.3.5",
+          "dependencies": {
+            "wordwrap": {
+              "version": "0.0.2"
+            }
+          }
+        }
+      }
+    },
+    "uglifycss": {
+      "version": "0.0.5"
+    }
+  }
+}

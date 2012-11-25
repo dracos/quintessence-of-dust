@@ -1,0 +1,20 @@
+./node_modules/.bin/uglifyjs \
+    lib/raphael.js \
+    lib/popup.js \
+    lib/jquery-ui/js/jquery-1.8.2.js \
+    lib/jquery-ui/js/jquery-ui-1.9.2.custom.js \
+    lib/selectToUISlider.jQuery.js \
+    lib/bootstrap/js/bootstrap.min.js \
+    js/rsc.clock.js \
+    js/rsc.data.js \
+    js/rsc.rect.js \
+    js/rsc.duration.js \
+    js/rsc.slider.js \
+    js/rsc.maps.js \
+    -c -m -o js/rsc.compiled.js
+
+./node_modules/.bin/uglifycss \
+    lib/bootstrap/css/bootstrap.css \
+    lib/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css \
+    css/ui.slider.extras.css \
+    css/rsc.css > css/rsc.compiled.css
