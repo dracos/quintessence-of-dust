@@ -4,19 +4,56 @@
 
 var RSC = (function(RSC) {
 
+// Clock sizes
 RSC.Sizes = {
-    'big': 30,
+    'big': 25,
     'medium': 20,
-    'small': 10
+    'small': 15
 };
 
+// Colours
 var t = {
-    comedy: '#006600',
-    history: '#990000',
-    tragedy: '#000099',
-    problem: '#999900',
-    other: '#990099'
-}
+    // RSC, no tour
+    rsc: '#cc0000', // Tender Thing, Pericles, Rape of Lucrece
+    rsc2: '#cc0000', // Swan - King John + Richard III
+    // RSC, tour
+    rsc1: '#ff0000', // Shipwreck Trilogy - Stratford / Roundhouse / Stratford
+    rscJC: '#660000', // Julius Caesar - Stratford / Newcastle / Coward
+    rscMA: '#990000', // Much Ado About Nothing - Stratford / Coward
+
+    // UK companies, no tour
+    almeida: '#000099', // King Lear
+    barbican: '#000099', // Desdemona
+    fairytales: '#000099', // Adventure of the Missing Manuscript
+    nt: '#000099', // Timon of Athens
+    ntwales: '#000099', // Coriolan/us
+    pilot: '#000099', // Pilot Night (5 unique performances, one night, with RSC)
+    roh: '#000099', // Otello, Falstaff
+    roundhouse: '#000099', // The Dark Side of Love
+    sage: '#000099', // West Side Story
+    stan: '#000099', // Rice exhibition
+    timcrouch: '#000099', // I Cinna (The Poet)
+    // UK companies, tour
+    cymru: '#0000cc', // Y Storm (The Tempest) - Eisteddfod / Carmarthen / Gwynedd
+    dreamthinkspeak: '#000066', // The Rest Is Silence - Brighton / Riverside / Newcastle
+    oilycart: '#0000ff', // In A Pickle - Swan / Stratford Circus / Newcastle
+    rep: '#000066', // Forests - Rep / Barbican
+
+    // International companies, no tour
+    globe: '#663399', // Globe to Globe (all plays, many companies)
+    mexico: '#663399', // A Solider in Every Son - The Rise of the Aztecs
+    ninagawa: '#663399', // Cymbeline
+    warszawa: '#663399', // 2008 : Macbeth
+    // International companies, tour
+    apa: '#663366', // French/Tunisian Macbeth - Riverside / Newcastle
+    bufomecanica: '#6633cc', // Two Roses for Richard III - Courtyard / Roundhouse
+    chekhov: '#6633ff', // Midsummer Night's Dream (As You Like It) - RST / Edinburgh
+    iraqi: '#666699', // Romeo and Juliet in Baghdad - Swan / Riverside
+    wooster: '#6666cc', // Troilus and Cressida - Swan / Riverside
+
+    // Education
+    education: '#ffcc00' // Young Company (takeover, Henry V), Poor Trash of Venice, Cesario
+};
 
 RSC.Locations = {
 
@@ -91,7 +128,7 @@ RSC.Locations = {
     },
     'Royal Lyceum Theatre, Edinburgh': {
         map: 'uk', x:0.75, y: 0.28, label_dir: 2, size: 'medium',
-        surrogate:{ map: 'uk', x:0.53, y: 0.405 }
+        surrogate: { map: 'uk', x:0.53, y: 0.405 }
     },
     'King\u2019s Theatre, Edinburgh': {
         map: 'uk', x:0.70, y: 0.36, label_dir: 3, size: 'big',
@@ -102,109 +139,109 @@ RSC.Locations = {
 RSC.Events = [
     // Stratford
     [
-        { title: 'Twelfth Night', location: 'Royal Shakespeare Theatre', start: '2012-03-08', end: '2012-05-15', col: t.comedy },
-        { title: 'The Comedy of Errors', location: 'Royal Shakespeare Theatre', start: '2012-03-16', end: '2012-05-14', col: t.comedy },
-        { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-03-30', end: '2012-05-19', col: t.problem }
+        { title: 'Twelfth Night', location: 'Royal Shakespeare Theatre', start: '2012-03-08', end: '2012-05-15', col: t.rsc1 },
+        { title: 'The Comedy of Errors', location: 'Royal Shakespeare Theatre', start: '2012-03-16', end: '2012-05-14', col: t.rsc1 },
+        { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-03-30', end: '2012-05-19', col: t.rsc1 }
     ],
     [
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-20', col: t.history },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-21', col: t.history }
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-20', col: t.rsc2 },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-21', col: t.rsc2 }
     ],
     [
-        { title: 'Romeo and Juliet in Baghdad', location: 'Swan Theatre', start: '2012-04-26', end: '2012-05-05', col: t.tragedy },
-        { title: 'Young Company Building Takeover', location: 'Swan Theatre', start: '2012-05-04', end: '2012-05-04', col: t.other }
+        { title: 'Romeo and Juliet in Baghdad', location: 'Swan Theatre', start: '2012-04-26', end: '2012-05-05', col: t.iraqi },
+        { title: 'Young Company Building Takeover', location: 'Swan Theatre', start: '2012-05-04', end: '2012-05-04', col: t.education }
     ],
     [
-        { title: 'King John', location: 'Swan Theatre', start: '2012-05-08', end: '2012-06-23', col: t.history },
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-05-10', end: '2012-06-22', col: t.history },
-        { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-06-13', end: '2012-06-20', col: t.other }
+        { title: 'King John', location: 'Swan Theatre', start: '2012-05-08', end: '2012-06-23', col: t.rsc2 },
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-05-10', end: '2012-06-22', col: t.rsc2 },
+        { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-06-13', end: '2012-06-20', col: t.timcrouch }
     ],
     [
-        { title: 'A Solider in Every Son - The Rise of the Aztecs', location: 'Swan Theatre', start: '2012-06-29', end: '2012-07-28', col: t.other },
-        { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-07-06', end: '2012-07-06', col: t.other },
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-07-09', end: '2012-07-24', col: t.history },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-07-12', end: '2012-07-27', col: t.history },
-        { title: 'Henry V', location: 'Swan Theatre', start: '2012-07-24', end: '2012-07-24', col: t.history }
+        { title: 'A Solider in Every Son - The Rise of the Aztecs', location: 'Swan Theatre', start: '2012-06-29', end: '2012-07-28', col: t.mexico },
+        { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-07-06', end: '2012-07-06', col: t.timcrouch },
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-07-09', end: '2012-07-24', col: t.rsc2 },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-07-12', end: '2012-07-27', col: t.rsc2 },
+        { title: 'Henry V', location: 'Swan Theatre', start: '2012-07-24', end: '2012-07-24', col: t.education }
     ],
-    { title: 'Troilus and Cressida', location: 'Swan Theatre', start: '2012-08-03', end: '2012-08-18', col: t.tragedy },
+    { title: 'Troilus and Cressida', location: 'Swan Theatre', start: '2012-08-03', end: '2012-08-18', col: t.wooster },
     [
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-08-21', end: '2012-09-15', col: t.history },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-08-22', end: '2012-09-15', col: t.history }
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-08-21', end: '2012-09-15', col: t.rsc2 },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-08-22', end: '2012-09-15', col: t.rsc2 }
     ],
-    { title: 'A Tender Thing', location: 'Swan Theatre', start: '2012-09-27', end: '2012-10-20', col: t.other },
+    { title: 'A Tender Thing', location: 'Swan Theatre', start: '2012-09-27', end: '2012-10-20', col: t.rsc },
 
-    { title: 'Of All the People in All the World, Stan’s Café', location: 'PACCAR Room', start: '2012-04-14', end: '2012-07-21', col: t.other },
+    { title: 'Of All the People in All the World, Stan’s Café', location: 'PACCAR Room', start: '2012-04-14', end: '2012-07-21', col: t.stan },
     // Living Walls?
-    { title: 'Two Roses for Richard III', location: 'Courtyard Theatre', start: '2012-05-07', end: '2012-05-12', col: t.other },
-    { title: 'In A Pickle', location: 'Swan Room', start: '2012-05-23', end: '2012-06-17', col: t.problem },
-    { title: 'The Adventure of the Missing Manuscript', location: 'Swan Room', start: '2012-07-21', end: '2012-09-02', col: t.other },
+    { title: 'Two Roses for Richard III', location: 'Courtyard Theatre', start: '2012-05-07', end: '2012-05-12', col: t.bufomecanica },
+    { title: 'In A Pickle', location: 'Swan Room', start: '2012-05-23', end: '2012-06-17', col: t.oilycart },
+    { title: 'The Adventure of the Missing Manuscript', location: 'Swan Room', start: '2012-07-21', end: '2012-09-02', col: t.fairytales },
     [
-        { title: 'Julius Caesar', location: 'Royal Shakespeare Theatre', start: '2012-05-28', end: '2012-07-07', col: t.tragedy },
-        { title: 'Poor Trash of Venice', location: 'Royal Shakespeare Theatre', start: '2012-07-03', end: '2012-07-04', col: t.other }
+        { title: 'Julius Caesar', location: 'Royal Shakespeare Theatre', start: '2012-05-28', end: '2012-07-07', col: t.rscJC },
+        { title: 'Poor Trash of Venice', location: 'Royal Shakespeare Theatre', start: '2012-07-03', end: '2012-07-04', col: t.education }
     ],
     [
-        { title: 'Twelfth Night', location: 'Royal Shakespeare Theatre', start: '2012-07-12', end: '2012-10-06', col: t.comedy },
-        { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-07-13', end: '2012-10-07', col: t.problem },
-        { title: 'The Comedy of Errors', location: 'Royal Shakespeare Theatre', start: '2012-07-16', end: '2012-10-06', col: t.comedy },
-        { title: "A Midsummer Night\u2019s Dream (As You Like It)", location: 'Royal Shakespeare Theatre', start: '2012-08-10', end: '2012-08-18', col: t.comedy }
+        { title: 'Twelfth Night', location: 'Royal Shakespeare Theatre', start: '2012-07-12', end: '2012-10-06', col: t.rsc1 },
+        { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-07-13', end: '2012-10-07', col: t.rsc1 },
+        { title: 'The Comedy of Errors', location: 'Royal Shakespeare Theatre', start: '2012-07-16', end: '2012-10-06', col: t.rsc1 },
+        { title: "A Midsummer Night\u2019s Dream (As You Like It)", location: 'Royal Shakespeare Theatre', start: '2012-08-10', end: '2012-08-18', col: t.chekhov }
     ],
-    { title: 'Pilot Night', location: 'Courtyard Theatre', start: '2012-07-12', end: '2012-07-12', col: t.other },
-    { title: 'Much Ado About Nothing', location: 'Courtyard Theatre', start: '2012-07-26', end: '2012-09-15', col: t.comedy },
-    { title: 'Pericles', location: 'Courtyard Theatre', start: '2012-10-05', end: '2012-10-07', col: t.problem },
+    { title: 'Pilot Night', location: 'Courtyard Theatre', start: '2012-07-12', end: '2012-07-12', col: t.pilot },
+    { title: 'Much Ado About Nothing', location: 'Courtyard Theatre', start: '2012-07-26', end: '2012-09-15', col: t.rscMA },
+    { title: 'Pericles', location: 'Courtyard Theatre', start: '2012-10-05', end: '2012-10-07', col: t.rsc },
 
     // London
-    { title: 'Globe to Globe', location: 'Shakespeare\u2019s Globe', start: '2012-04-21', end: '2012-06-09', col: t.other },
-    { title: 'Falstaff', location: 'Royal Opera House', start: '2012-05-15', end: '2012-05-30', col: t.other },
-    { title: 'Two Roses for Richard III', location: 'Roundhouse', start: '2012-05-18', end: '2012-05-23', col: t.other },
-    { title: 'Cymbeline', location: 'Barbican', start: '2012-05-29', end: '2012-06-02', col: t.other },
+    { title: 'Globe to Globe', location: 'Shakespeare\u2019s Globe', start: '2012-04-21', end: '2012-06-09', col: t.globe },
+    { title: 'Falstaff', location: 'Royal Opera House', start: '2012-05-15', end: '2012-05-30', col: t.roh },
+    { title: 'Two Roses for Richard III', location: 'Roundhouse', start: '2012-05-18', end: '2012-05-23', col: t.bufomecanica },
+    { title: 'Cymbeline', location: 'Barbican', start: '2012-05-29', end: '2012-06-02', col: t.ninagawa },
     [
-        { title: 'The Comedy of Errors', location: 'Roundhouse', start: '2012-06-01', end: '2012-07-04', col: t.comedy },
-        { title: 'Twelfth Night', location: 'Roundhouse', start: '2012-06-05', end: '2012-07-05', col: t.comedy },
-        { title: 'The Tempest', location: 'Roundhouse', start: '2012-06-09', end: '2012-07-05', col: t.problem },
-        { title: 'The Dark Side of Love', location: 'Roundhouse', start: '2012-06-26', end: '2012-07-08', col: t.other }
+        { title: 'The Comedy of Errors', location: 'Roundhouse', start: '2012-06-01', end: '2012-07-04', col: t.rsc1 },
+        { title: 'Twelfth Night', location: 'Roundhouse', start: '2012-06-05', end: '2012-07-05', col: t.rsc1 },
+        { title: 'The Tempest', location: 'Roundhouse', start: '2012-06-09', end: '2012-07-05', col: t.rsc1 },
+        { title: 'The Dark Side of Love', location: 'Roundhouse', start: '2012-06-26', end: '2012-07-08', col: t.roundhouse }
     ],
-    { title: 'The Rest is Silence', location: 'Riverside Studios', start: '2012-06-12', end: '2012-06-23', col: t.other },
-    { title: 'In a Pickle', location: 'Stratford Circus', start: '2012-06-19', end: '2012-06-23', col: t.other },
-    { title: 'Romeo and Juliet in Baghdad', location: 'Riverside Studios', start: '2012-06-28', end: '2012-06-30', col: t.tragedy },
-    { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Riverside Studios', start: '2012-07-04', end: '2012-07-07', col: t.tragedy },
+    { title: 'The Rest is Silence', location: 'Riverside Studios', start: '2012-06-12', end: '2012-06-23', col: t.dreamthinkspeak },
+    { title: 'In a Pickle', location: 'Stratford Circus', start: '2012-06-19', end: '2012-06-23', col: t.oilycart },
+    { title: 'Romeo and Juliet in Baghdad', location: 'Riverside Studios', start: '2012-06-28', end: '2012-06-30', col: t.iraqi },
+    { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Riverside Studios', start: '2012-07-04', end: '2012-07-07', col: t.apa },
     [
-        { title: 'Timon of Athens', location: 'National Theatre', start: '2012-07-10', end:  '2012-09-09', col: t.tragedy },
-        { title: 'Cesario', location: 'National Theatre', start: '2012-08-22', end: '2012-08-25', col: t.other }
+        { title: 'Timon of Athens', location: 'National Theatre', start: '2012-07-10', end:  '2012-09-09', col: t.nt },
+        { title: 'Cesario', location: 'National Theatre', start: '2012-08-22', end: '2012-08-25', col: t.education }
     ],
-    { title: 'Otello', location: 'Royal Opera House', start: '2012-07-12', end: '2012-07-24', col: t.tragedy },
-    { title: 'Desdemona', location: 'Barbican', start: '2012-07-19', end: '2012-07-20', col: t.other },
-    { title: 'Julius Caesar', location: 'Noël Coward Theatre', start: '2012-08-08', end: '2012-09-15', col: t.tragedy },
-    { title: 'Much Ado About Nothing', location: 'Noël Coward Theatre', start: '2012-09-24', end: '2012-10-27', col: t.comedy },
-    { title: 'Troilus and Cressida', location: 'Riverside Studios', start: '2012-08-23', end: '2012-09-08', col: t.tragedy },
-    { title: 'King Lear', location: 'Almeida Theatre', start: '2012-08-31', end: '2012-11-03', col: t.tragedy },
-    { title: 'Forests', location: 'Barbican', start: '2012-11-06', end: '2012-11-10', col: t.other },
+    { title: 'Otello', location: 'Royal Opera House', start: '2012-07-12', end: '2012-07-24', col: t.roh },
+    { title: 'Desdemona', location: 'Barbican', start: '2012-07-19', end: '2012-07-20', col: t.barbican },
+    { title: 'Julius Caesar', location: 'Noël Coward Theatre', start: '2012-08-08', end: '2012-09-15', col: t.rscJC },
+    { title: 'Much Ado About Nothing', location: 'Noël Coward Theatre', start: '2012-09-24', end: '2012-10-27', col: t.rscMA },
+    { title: 'Troilus and Cressida', location: 'Riverside Studios', start: '2012-08-23', end: '2012-09-08', col: t.wooster },
+    { title: 'King Lear', location: 'Almeida Theatre', start: '2012-08-31', end: '2012-11-03', col: t.almeida },
+    { title: 'Forests', location: 'Barbican', start: '2012-11-06', end: '2012-11-10', col: t.rep },
     // Shakespeare - Staging the World
 
     // Brighton
-    { title: 'The Rest is Silence', location: 'Malthouse Estate Warehouse, Brighton', start: '2012-05-02', end: '2012-06-08', col: t.other },
+    { title: 'The Rest is Silence', location: 'Malthouse Estate Warehouse, Brighton', start: '2012-05-02', end: '2012-06-08', col: t.dreamthinkspeak },
 
     // Newcastle
     [
-        { title: 'The Rest is Silence', location: 'Northern Stage, Newcastle', start: '2012-06-26', end: '2012-06-30', col: t.other },
-        { title: 'In A Pickle', location: 'Northern Stage, Newcastle', start: '2012-06-27', end: '2012-06-30', col: t.other }
+        { title: 'The Rest is Silence', location: 'Northern Stage, Newcastle', start: '2012-06-26', end: '2012-06-30', col: t.dreamthinkspeak },
+        { title: 'In A Pickle', location: 'Northern Stage, Newcastle', start: '2012-06-27', end: '2012-06-30', col: t.oilycart }
     ],
-    { title: 'West Side Story', location: 'Sage Gateshead', start: '2012-07-04', end: '2012-07-07', col: t.tragedy },
-    { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Northern Stage, Newcastle', start: '2012-07-12', end: '2012-07-14', col: t.tragedy },
-    { title: 'Julius Caesar', location: 'Theatre Royal, Newcastle', start: '2012-07-19', end: '2012-07-28', col: t.tragedy },
+    { title: 'West Side Story', location: 'Sage Gateshead', start: '2012-07-04', end: '2012-07-07', col: t.sage },
+    { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Northern Stage, Newcastle', start: '2012-07-12', end: '2012-07-14', col: t.apa },
+    { title: 'Julius Caesar', location: 'Theatre Royal, Newcastle', start: '2012-07-19', end: '2012-07-28', col: t.rscJC },
 
     // Edinburgh
-    { title: '2008 : Macbeth', location: 'Royal Highland Centre, Edinburgh', start: '2012-08-11', end: '2012-08-18', col: t.tragedy },
-    { title: 'The Rape of Lucrece', location: 'Royal Lyceum Theatre, Edinburgh', start: '2012-08-22', end: '2012-08-26', col: t.other },
-    { title: "A Midsummer Night\u2019s Dream (As You Like It)", location: 'King\u2019s Theatre, Edinburgh', start: '2012-08-24', end: '2012-08-26', col: t.comedy },
+    { title: '2008 : Macbeth', location: 'Royal Highland Centre, Edinburgh', start: '2012-08-11', end: '2012-08-18', col: t.warszawa },
+    { title: 'The Rape of Lucrece', location: 'Royal Lyceum Theatre, Edinburgh', start: '2012-08-22', end: '2012-08-26', col: t.rsc },
+    { title: "A Midsummer Night\u2019s Dream (As You Like It)", location: 'King\u2019s Theatre, Edinburgh', start: '2012-08-24', end: '2012-08-26', col: t.chekhov },
 
     // Birmingham
-    { title: 'Forests', location: 'Birmingham Repertory Theatre\nat the Old Rep Theatre', start: '2012-08-31', end: '2012-09-15', col: t.other },
+    { title: 'Forests', location: 'Birmingham Repertory Theatre\nat the Old Rep Theatre', start: '2012-08-31', end: '2012-09-15', col: t.rep },
 
     // Wales
-    { title: 'Y Storm', location: 'National Eisteddfod of Wales,\nVale of Glamorgan', start: '2012-08-07', end: '2012-08-11', col: t.problem, label_dir: 3 },
-    { title: 'Coriolan/us', location: 'Hangar 858,\nVale of Glamorgan', start: '2012-08-09', end: '2012-08-18', col: t.tragedy, label_dir: 3 },
-    { title: 'Y Storm', location: 'United Counties Showground, Carmarthen', start: '2012-09-18', end: '2012-09-21', col: t.problem, label_dir: 3 },
-    { title: 'Y Storm', location: 'The Vaynol Estate, Gwynedd', start: '2012-10-02', end: '2012-10-06', col: t.problem }
+    { title: 'Y Storm', location: 'National Eisteddfod of Wales,\nVale of Glamorgan', start: '2012-08-07', end: '2012-08-11', col: t.cymru, label_dir: 3 },
+    { title: 'Coriolan/us', location: 'Hangar 858,\nVale of Glamorgan', start: '2012-08-09', end: '2012-08-18', col: t.ntwales, label_dir: 3 },
+    { title: 'Y Storm', location: 'United Counties Showground, Carmarthen', start: '2012-09-18', end: '2012-09-21', col: t.cymru, label_dir: 3 },
+    { title: 'Y Storm', location: 'The Vaynol Estate, Gwynedd', start: '2012-10-02', end: '2012-10-06', col: t.cymru }
 ];
 
 return RSC;

@@ -79,9 +79,6 @@ $(function(){
         }
     });
 
-    setTimeout(function() {
-        $('select#date').val('13/08').change();
-    }, 1000);
 });
 
 return RSC;

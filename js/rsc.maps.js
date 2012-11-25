@@ -24,9 +24,19 @@ $(function(){
     var body_font = 'Helvetica, Arial, sans-serif';
     paper.text(800, 12, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': font, 'font-size': '32px', 'text-anchor': 'start' });
     var fff = { 'font-size': '16px', 'text-anchor': 'start', 'font-family': body_font };
-    paper.text(800, 80, "A day by day overview of the productions of the\nWorld Shakespeare Festival.").attr(fff);
-    paper.text(800, 147, "Watch the animation over the course of the festival,\nor manually pick the date to see what productions\nwere on, and where.").attr(fff);
-    paper.text(1180, 204, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
+    paper.text(800, 100, "A day by day overview of the productions of the\nWorld Shakespeare Festival. Watch the animation\nover the course of the festival, or manually pick\nthe date to see what productions were on where.").attr(fff);
+    paper.text(1180, 166, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
+
+    var key = [
+        [ 800, 182, '#cc0000', 'RSC' ],
+        [ 800, 202, '#000099', 'UK' ],
+        [ 800, 222, '#663399', 'International' ]
+    ];
+    $.each(key, function(i, k) {
+        paper.text(k[0]+20, k[1]+8, k[3]).attr(fff).attr({ 'font-size': '12px' });
+        paper.rect(k[0], k[1], 15, 15).attr({ fill: k[2], stroke: 'none' });
+    });
+    paper.text(800, 250, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
 
     var zoomed = {
         'stroke': 'black',
@@ -89,6 +99,7 @@ $(function(){
         RSC.clocks.push(clock);
     });
 
+    $('select#date').change().focus();
 });
 
 
