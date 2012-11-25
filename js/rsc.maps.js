@@ -20,7 +20,10 @@ $(function(){
     // RSC.Rect(paper, maps.uk, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
     paper.image('i/gb-watercolour.png', maps.uk.x, maps.uk.y, maps.uk.w, maps.uk.h);
     //paper.text(880, 32, "World Shakespeare\nFestival Timeline").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '32px', 'text-anchor': 'start' });
-    paper.text(780, 32, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '32px', 'text-anchor': 'start' });
+    var font = 'Optima, "Zapf Humanist", "MgOpen Cosmetica", Candara, Myriad, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Frutiger, "Trebuchet MS", sans-serif';
+    var body_font = 'Helvetica, Arial, sans-serif';
+    paper.text(780, 12, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': font, 'font-size': '32px', 'text-anchor': 'start' });
+    paper.text(780, 100, "This is the summary text where I describe this World\nShakespeare Festival timeline. It shows all the\nproductions that was on during the festival.\nMore information").attr({ 'font-size': '16px', 'text-anchor': 'start', 'font-family': body_font });
 
     var zoomed = {
         'stroke': 'black',
@@ -29,7 +32,7 @@ $(function(){
         'fill-opacity': 0.2
     };
     // Stratford map
-    paper.text(maps.stratford.x+maps.stratford.w+16, maps.stratford.y+maps.stratford.h-104, "Stratford-upon-Avon").transform("R90").attr({ 'font-family': 'Baskerville', 'font-size': '24px' });
+    paper.text(maps.stratford.x+maps.stratford.w+16, maps.stratford.y+maps.stratford.h-104, "Stratford-upon-Avon").transform("R90").attr({ 'font-family': font, 'font-size': '24px' });
     RSC.Rect(paper, maps.stratford, 0).attr({ stroke: 'none' }).glow({ });
     RSC.Rect(paper, maps.stratfordOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
     paper.path("M" + (maps.stratford.x-1)+','+(maps.stratford.y+maps.stratford.h+1)+" " + (maps.stratfordOnUK.x) + ',' + (maps.stratfordOnUK.y+maps.stratfordOnUK.h)).attr(zoomed);
@@ -37,7 +40,7 @@ $(function(){
     paper.image('i/stratford15z.png', maps.stratford.x, maps.stratford.y, maps.stratford.w, maps.stratford.h);
 
     // London map
-    paper.text(maps.london.x+maps.london.w-40, maps.london.y-16, "London").attr({ 'font-family': 'Baskerville', 'font-size': '24px' });
+    paper.text(maps.london.x+maps.london.w-40, maps.london.y-16, "London").attr({ 'font-family': font, 'font-size': '24px' });
     RSC.Rect(paper, maps.london, 0).attr({ stroke: 'none' }).glow({});
     RSC.Rect(paper, maps.londonOnUK).attr({ 'stroke': 'none', 'fill': 'black', 'fill-opacity': 0.25 });
     paper.path("M" + (maps.london.x+maps.london.w+1)+','+(maps.london.y+maps.london.h+1)+" " + (maps.londonOnUK.x+maps.londonOnUK.w) + ',' + (maps.londonOnUK.y+maps.londonOnUK.h)).attr(zoomed);

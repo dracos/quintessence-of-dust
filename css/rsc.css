@@ -1,6 +1,50 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+h1, h2 {
+    font-family: Optima, "Zapf Humanist", "MgOpen Cosmetica", Candara, Myriad, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Frutiger, "Trebuchet MS", sans-serif;
+}
+
 label {
     display: none;
 }
+
+/* About page */
+#back {
+    float: right;
+    margin-top: -3em;
+    margin-right: 2em;
+}
+
+blockquote {
+    float: left;
+    width: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 2em;
+}
+
+blockquote .img {
+    float: left;
+    margin: 0 1em 0 0;
+}
+
+.img {
+    float: right;
+    padding: 0.5em;
+    border: solid 1px #ccc;
+    margin: 0 0 0 1em;
+}
+
+/* Slider */
 
 .ui-slider {
     margin: 0 4.5em 4em 0;
@@ -26,6 +70,8 @@ label {
     color: white;
 }
 
+/* Map */
+
 #map {
     clear: both;
     position: absolute;
@@ -36,6 +82,8 @@ label {
     margin-left: -590px;
     margin-top: -270px;
 }
+
+/* Play/pause */
 
 #controls {
     float: right;
