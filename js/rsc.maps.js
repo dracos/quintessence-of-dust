@@ -22,8 +22,11 @@ $(function(){
     //paper.text(880, 32, "World Shakespeare\nFestival Timeline").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '32px', 'text-anchor': 'start' });
     var font = 'Optima, "Zapf Humanist", "MgOpen Cosmetica", Candara, Myriad, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Frutiger, "Trebuchet MS", sans-serif';
     var body_font = 'Helvetica, Arial, sans-serif';
-    paper.text(780, 12, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': font, 'font-size': '32px', 'text-anchor': 'start' });
-    paper.text(780, 100, "This is the summary text where I describe this World\nShakespeare Festival timeline. It shows all the\nproductions that was on during the festival.\nMore information").attr({ 'font-size': '16px', 'text-anchor': 'start', 'font-family': body_font });
+    paper.text(800, 12, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': font, 'font-size': '32px', 'text-anchor': 'start' });
+    var fff = { 'font-size': '16px', 'text-anchor': 'start', 'font-family': body_font };
+    paper.text(800, 80, "A day by day overview of the productions of the\nWorld Shakespeare Festival.").attr(fff);
+    paper.text(800, 147, "Watch the animation over the course of the festival,\nor manually pick the date to see what productions\nwere on, and where.").attr(fff);
+    paper.text(1180, 204, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
 
     var zoomed = {
         'stroke': 'black',
