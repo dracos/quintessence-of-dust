@@ -17,8 +17,8 @@ $(function(){
     var paper = Raphael("map", 1180, 600);
 
     // UK Map
-    // RSC.Rect(paper, maps.uk, 1).attr({ 'stroke': 'black', 'stroke-width': 1 });//.glow({ offsetx: 8, offsety: 8, width: 4, fill: 1});
     paper.image('i/gb-watercolour.png', maps.uk.x, maps.uk.y, maps.uk.w, maps.uk.h);
+    RSC.Rect(paper, maps.uk, 0).attr({ 'stroke': 'none' }).glow({ color: 'white', opacity: 1 });
     //paper.text(880, 32, "World Shakespeare\nFestival Timeline").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '32px', 'text-anchor': 'start' });
     var font = 'Optima, "Zapf Humanist", "MgOpen Cosmetica", Candara, Myriad, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Frutiger, "Trebuchet MS", sans-serif';
     var body_font = 'Helvetica, Arial, sans-serif';
@@ -99,7 +99,8 @@ $(function(){
         RSC.clocks.push(clock);
     });
 
-    $('select#date').change().focus();
+    $('select#date').change();
+    $('#handle_date').focus();
 });
 
 
