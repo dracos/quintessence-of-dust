@@ -8,8 +8,8 @@ var maps = {
     'stratford': { x: 500, y: 20, w: 230, h: 230 },
     'london': { 'x': 420, 'y': 280, 'w': 750, 'h': 300 },
     'uk': { x: 0, y: 0, w: 0.75*641, h: 0.75*794 },
-    'stratfordOnUK': { x: 322, y: 492, w: 4, h: 4 },
-    'londonOnUK': { x: 377, y: 528, w: 10, h: 5 }
+    'stratfordOnUK': { x: 300, y: 459, w: 4, h: 4 },
+    'londonOnUK': { x: 352, y: 493, w: 10, h: 5 }
 };
 
 $(function(){
