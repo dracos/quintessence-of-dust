@@ -28,28 +28,35 @@ $(function(){
     paper.text(1180, 166, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
 
     var key = [
-        [ 804, 182, '#ff0000', 'RSC' ],
-        [ 804, 202, '#0000ff', 'UK' ],
-        [ 804, 222, '#6633ff', 'International' ]
+        [ 800, 162, '#ff0000', 'RSC', 'A Tender Thing, Rape of Lucrece,\nPericles, King John, Richard III' ],
+        [ 800, 182, '#0000ff', 'UK', 'King Lear, Desdemona, Missing Manuscript,\nTimon of Athens, Coriolan/us, Pilot Night,\nOtello, Falstaff, The Dark Side of Love,\nWest Side Story, Stan\u2019s Cafe, I Cinna (The Poet)' ],
+
+        [ 800, 202, '#6633ff', 'International', 'Globe to Globe, Cymbeline,\nA Soldier in Every Son, 2008:Macbeth' ],
+        [ 800, 222, '#ffcc00', 'Young people', 'Young Company Building Takeover, Henry V,\nPoor Trash of Venice, Cesario' ]
     ];
     $.each(key, function(i, k) {
         paper.text(k[0]+46, k[1]+8, k[3]).attr(fff).attr({ 'font-size': '12px' });
-        paper.rect(k[0], k[1], 15, 15).attr({ fill: k[2], stroke: 'none' });
+        var r = paper.rect(k[0], k[1], 15, 15).attr({ fill: k[2], stroke: 'none' });
+        if (k[4]) {
+            var p = paper.popup(0, 0, k[4]).update(k[0]+7, k[1], 2).hide()
+                .hover(function(){ p.toFront().show(); }, function(){ p.hide(); });
+            r.hover(function() { p.toFront().show(); }, function() { p.hide(); });
+        }
     });
     key = {
-        182: [
-            [ '#cc0000', 'Shipwreck Trilogy' ],
+        162: [
+            [ '#cc0000', 'Shipwreck Trilogy \u2013 Twelfth Night,\nThe Comedy of Errors, The Tempest' ],
             [ '#990000', 'Much Ado About Nothing' ],
             [ '#660000', 'Julius Caesar' ],
         ],
-        202: [
+        182: [
             [ '#0000dd', 'In A Pickle' ],
             [ '#0000bb', 'Y Storm (The Tempest)' ],
             [ '#000099', 'Forests' ],
             [ '#000077', 'The Rest Is Silence' ],
         ],
-        222: [
-            [ '#6633dd', 'Macbeth : Leila and Ben - A Bloody History' ],
+        202: [
+            [ '#6633dd', 'Macbeth : Leila and Ben \u2013 A Bloody History' ],
             [ '#6633bb', 'Two Roses for Richard III' ],
             [ '#663399', 'A Midsummer Night\u2019s Dream (As You Like It)' ],
             [ '#663377', 'Romeo and Juliet in Baghdad' ],
@@ -57,7 +64,7 @@ $(function(){
         ]
     };
     $.each(key, function(h, shades) {
-        var w = 820;
+        var w = 816;
         $.each(shades, function(i, k) {
             var p = paper.popup(0, 0, k[1]).update(w+2, h, 2).hide()
                 .hover(function(){ p.toFront().show(); },
@@ -68,7 +75,7 @@ $(function(){
             w += 5;
         });
     });
-    paper.text(804, 250, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
+    paper.text(800, 250, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
 
     var zoomed = {
         'stroke': 'black',

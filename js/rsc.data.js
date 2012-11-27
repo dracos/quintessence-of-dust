@@ -40,7 +40,7 @@ var t = {
 
     // International companies, no tour
     globe: '#6633ff', // Globe to Globe (all plays, many companies)
-    mexico: '#6633ff', // A Solider in Every Son - The Rise of the Aztecs
+    mexico: '#6633ff', // A Soldier in Every Son - The Rise of the Aztecs
     ninagawa: '#6633ff', // Cymbeline
     warszawa: '#6633ff', // 2008 : Macbeth
     // International companies, tour
@@ -156,7 +156,7 @@ RSC.Events = [
         { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-06-13', end: '2012-06-20', col: t.timcrouch }
     ],
     [
-        { title: 'A Solider in Every Son - The Rise of the Aztecs', location: 'Swan Theatre', start: '2012-06-29', end: '2012-07-28', col: t.mexico },
+        { title: 'A Soldier in Every Son \u2013 The Rise of the Aztecs', location: 'Swan Theatre', start: '2012-06-29', end: '2012-07-28', col: t.mexico },
         { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-07-06', end: '2012-07-06', col: t.timcrouch },
         { title: 'Richard III', location: 'Swan Theatre', start: '2012-07-09', end: '2012-07-24', col: t.rsc },
         { title: 'King John', location: 'Swan Theatre', start: '2012-07-12', end: '2012-07-27', col: t.rsc },
@@ -202,7 +202,7 @@ RSC.Events = [
     { title: 'The Rest is Silence', location: 'Riverside Studios', start: '2012-06-12', end: '2012-06-23', col: t.dreamthinkspeak },
     { title: 'In a Pickle', location: 'Stratford Circus', start: '2012-06-19', end: '2012-06-23', col: t.oilycart },
     { title: 'Romeo and Juliet in Baghdad', location: 'Riverside Studios', start: '2012-06-28', end: '2012-06-30', col: t.iraqi },
-    { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Riverside Studios', start: '2012-07-04', end: '2012-07-07', col: t.apa },
+    { title: 'Macbeth : Leila and Ben \u2013 A Bloody History', location: 'Riverside Studios', start: '2012-07-04', end: '2012-07-07', col: t.apa },
     [
         { title: 'Timon of Athens', location: 'National Theatre', start: '2012-07-10', end:  '2012-09-09', col: t.nt },
         { title: 'Cesario', location: 'National Theatre', start: '2012-08-22', end: '2012-08-25', col: t.education }
@@ -225,7 +225,7 @@ RSC.Events = [
         { title: 'In A Pickle', location: 'Northern Stage, Newcastle', start: '2012-06-27', end: '2012-06-30', col: t.oilycart }
     ],
     { title: 'West Side Story', location: 'Sage Gateshead', start: '2012-07-04', end: '2012-07-07', col: t.sage },
-    { title: 'Macbeth : Leila and Ben - A Bloody History', location: 'Northern Stage, Newcastle', start: '2012-07-12', end: '2012-07-14', col: t.apa },
+    { title: 'Macbeth : Leila and Ben \u2013 A Bloody History', location: 'Northern Stage, Newcastle', start: '2012-07-12', end: '2012-07-14', col: t.apa },
     { title: 'Julius Caesar', location: 'Theatre Royal, Newcastle', start: '2012-07-19', end: '2012-07-28', col: t.rscJC },
 
     // Edinburgh
