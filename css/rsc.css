@@ -22,14 +22,22 @@ label {
     margin-right: 2em;
 }
 
-blockquote {
+#credits {
+    clear: both;
+    padding: 0 2em;
+}
+
+.half {
     float: left;
     width: 50%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0;
     padding: 0 2em;
+}
+
+blockquote {
+    margin: 0;
 }
 
 blockquote .img {
