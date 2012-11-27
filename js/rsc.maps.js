@@ -28,15 +28,47 @@ $(function(){
     paper.text(1180, 166, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
 
     var key = [
-        [ 800, 182, '#cc0000', 'RSC' ],
-        [ 800, 202, '#000099', 'UK' ],
-        [ 800, 222, '#663399', 'International' ]
+        [ 804, 182, '#ff0000', 'RSC' ],
+        [ 804, 202, '#0000ff', 'UK' ],
+        [ 804, 222, '#6633ff', 'International' ]
     ];
     $.each(key, function(i, k) {
-        paper.text(k[0]+20, k[1]+8, k[3]).attr(fff).attr({ 'font-size': '12px' });
+        paper.text(k[0]+46, k[1]+8, k[3]).attr(fff).attr({ 'font-size': '12px' });
         paper.rect(k[0], k[1], 15, 15).attr({ fill: k[2], stroke: 'none' });
     });
-    paper.text(800, 250, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
+    key = {
+        182: [
+            [ '#cc0000', 'Shipwreck Trilogy' ],
+            [ '#990000', 'Much Ado About Nothing' ],
+            [ '#660000', 'Julius Caesar' ],
+        ],
+        202: [
+            [ '#0000dd', 'In A Pickle' ],
+            [ '#0000bb', 'Y Storm (The Tempest)' ],
+            [ '#000099', 'Forests' ],
+            [ '#000077', 'The Rest Is Silence' ],
+        ],
+        222: [
+            [ '#6633dd', 'Macbeth : Leila and Ben - A Bloody History' ],
+            [ '#6633bb', 'Two Roses for Richard III' ],
+            [ '#663399', 'A Midsummer Night\u2019s Dream (As You Like It)' ],
+            [ '#663377', 'Romeo and Juliet in Baghdad' ],
+            [ '#663355', 'Troilus and Cressida' ]
+        ]
+    };
+    $.each(key, function(h, shades) {
+        var w = 820;
+        $.each(shades, function(i, k) {
+            var p = paper.popup(0, 0, k[1]).update(w+2, h, 2).hide()
+                .hover(function(){ p.toFront().show(); },
+                    function(){ p.hide(); });
+            paper.rect(w, h, 4, 15).attr({ fill: k[0], stroke: 'none' })
+                .hover(function() { p.toFront().show(); },
+                    function() { p.hide(); });
+            w += 5;
+        });
+    });
+    paper.text(804, 250, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
 
     var zoomed = {
         'stroke': 'black',

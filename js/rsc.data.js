@@ -14,42 +14,41 @@ RSC.Sizes = {
 // Colours
 var t = {
     // RSC, no tour
-    rsc: '#cc0000', // Tender Thing, Pericles, Rape of Lucrece
-    rsc2: '#cc0000', // Swan - King John + Richard III
+    rsc: '#ff0000', // Tender Thing, Pericles, Rape of Lucrece, King John, Richard III
     // RSC, tour
-    rsc1: '#ff0000', // Shipwreck Trilogy - Stratford / Roundhouse / Stratford
+    rsc1: '#cc0000', // Shipwreck Trilogy - Stratford / Roundhouse / Stratford
     rscJC: '#660000', // Julius Caesar - Stratford / Newcastle / Coward
     rscMA: '#990000', // Much Ado About Nothing - Stratford / Coward
 
     // UK companies, no tour
-    almeida: '#000099', // King Lear
-    barbican: '#000099', // Desdemona
-    fairytales: '#000099', // Adventure of the Missing Manuscript
-    nt: '#000099', // Timon of Athens
-    ntwales: '#000099', // Coriolan/us
-    pilot: '#000099', // Pilot Night (5 unique performances, one night, with RSC)
-    roh: '#000099', // Otello, Falstaff
-    roundhouse: '#000099', // The Dark Side of Love
-    sage: '#000099', // West Side Story
-    stan: '#000099', // Rice exhibition
-    timcrouch: '#000099', // I Cinna (The Poet)
+    almeida: '#0000ff', // King Lear
+    barbican: '#0000ff', // Desdemona
+    fairytales: '#0000ff', // Adventure of the Missing Manuscript
+    nt: '#0000ff', // Timon of Athens
+    ntwales: '#0000ff', // Coriolan/us
+    pilot: '#0000ff', // Pilot Night (5 unique performances, one night, with RSC)
+    roh: '#0000ff', // Otello, Falstaff
+    roundhouse: '#0000ff', // The Dark Side of Love
+    sage: '#0000ff', // West Side Story
+    stan: '#0000ff', // Rice exhibition
+    timcrouch: '#0000ff', // I Cinna (The Poet)
     // UK companies, tour
-    cymru: '#0000cc', // Y Storm (The Tempest) - Eisteddfod / Carmarthen / Gwynedd
-    dreamthinkspeak: '#000066', // The Rest Is Silence - Brighton / Riverside / Newcastle
-    oilycart: '#0000ff', // In A Pickle - Swan / Stratford Circus / Newcastle
-    rep: '#000066', // Forests - Rep / Barbican
+    cymru: '#0000bb', // Y Storm (The Tempest) - Eisteddfod / Carmarthen / Gwynedd
+    dreamthinkspeak: '#000077', // The Rest Is Silence - Brighton / Riverside / Newcastle
+    oilycart: '#0000dd', // In A Pickle - Swan / Stratford Circus / Newcastle
+    rep: '#000099', // Forests - Rep / Barbican
 
     // International companies, no tour
-    globe: '#663399', // Globe to Globe (all plays, many companies)
-    mexico: '#663399', // A Solider in Every Son - The Rise of the Aztecs
-    ninagawa: '#663399', // Cymbeline
-    warszawa: '#663399', // 2008 : Macbeth
+    globe: '#6633ff', // Globe to Globe (all plays, many companies)
+    mexico: '#6633ff', // A Solider in Every Son - The Rise of the Aztecs
+    ninagawa: '#6633ff', // Cymbeline
+    warszawa: '#6633ff', // 2008 : Macbeth
     // International companies, tour
-    apa: '#663366', // French/Tunisian Macbeth - Riverside / Newcastle
-    bufomecanica: '#6633cc', // Two Roses for Richard III - Courtyard / Roundhouse
-    chekhov: '#6633ff', // Midsummer Night's Dream (As You Like It) - RST / Edinburgh
-    iraqi: '#666699', // Romeo and Juliet in Baghdad - Swan / Riverside
-    wooster: '#6666cc', // Troilus and Cressida - Swan / Riverside
+    apa: '#6633dd', // French/Tunisian Macbeth - Riverside / Newcastle
+    bufomecanica: '#6633bb', // Two Roses for Richard III - Courtyard / Roundhouse
+    chekhov: '#663399', // Midsummer Night's Dream (As You Like It) - RST / Edinburgh
+    iraqi: '#663377', // Romeo and Juliet in Baghdad - Swan / Riverside
+    wooster: '#663355', // Troilus and Cressida - Swan / Riverside
 
     // Education
     education: '#ffcc00' // Young Company (takeover, Henry V), Poor Trash of Venice, Cesario
@@ -144,29 +143,29 @@ RSC.Events = [
         { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-03-30', end: '2012-05-19', col: t.rsc1 }
     ],
     [
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-20', col: t.rsc2 },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-21', col: t.rsc2 }
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-20', col: t.rsc },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-21', col: t.rsc }
     ],
     [
         { title: 'Romeo and Juliet in Baghdad', location: 'Swan Theatre', start: '2012-04-26', end: '2012-05-05', col: t.iraqi },
         { title: 'Young Company Building Takeover', location: 'Swan Theatre', start: '2012-05-04', end: '2012-05-04', col: t.education }
     ],
     [
-        { title: 'King John', location: 'Swan Theatre', start: '2012-05-08', end: '2012-06-23', col: t.rsc2 },
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-05-10', end: '2012-06-22', col: t.rsc2 },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-05-08', end: '2012-06-23', col: t.rsc },
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-05-10', end: '2012-06-22', col: t.rsc },
         { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-06-13', end: '2012-06-20', col: t.timcrouch }
     ],
     [
         { title: 'A Solider in Every Son - The Rise of the Aztecs', location: 'Swan Theatre', start: '2012-06-29', end: '2012-07-28', col: t.mexico },
         { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-07-06', end: '2012-07-06', col: t.timcrouch },
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-07-09', end: '2012-07-24', col: t.rsc2 },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-07-12', end: '2012-07-27', col: t.rsc2 },
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-07-09', end: '2012-07-24', col: t.rsc },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-07-12', end: '2012-07-27', col: t.rsc },
         { title: 'Henry V', location: 'Swan Theatre', start: '2012-07-24', end: '2012-07-24', col: t.education }
     ],
     { title: 'Troilus and Cressida', location: 'Swan Theatre', start: '2012-08-03', end: '2012-08-18', col: t.wooster },
     [
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-08-21', end: '2012-09-15', col: t.rsc2 },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-08-22', end: '2012-09-15', col: t.rsc2 }
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-08-21', end: '2012-09-15', col: t.rsc },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-08-22', end: '2012-09-15', col: t.rsc }
     ],
     { title: 'A Tender Thing', location: 'Swan Theatre', start: '2012-09-27', end: '2012-10-20', col: t.rsc },
 
