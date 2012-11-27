@@ -14,6 +14,10 @@ var maps = {
 
 $(function(){
 
+    var sl_h = $('#map').offset().top;
+    if ($(window).height() > 616 + sl_h) {
+        $('#map').css( { 'top': '50%', 'margin-top': '-270px' } );
+    }
     var paper = Raphael("map", 1180, 600);
 
     // UK Map
@@ -22,7 +26,7 @@ $(function(){
     //paper.text(880, 32, "World Shakespeare\nFestival Timeline").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '32px', 'text-anchor': 'start' });
     var font = 'Optima, "Zapf Humanist", "MgOpen Cosmetica", Candara, Myriad, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Frutiger, "Trebuchet MS", sans-serif';
     var body_font = 'Helvetica, Arial, sans-serif';
-    paper.text(800, 12, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': font, 'font-size': '32px', 'text-anchor': 'start' });
+    paper.text(800, 16, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': font, 'font-size': '32px', 'text-anchor': 'start' });
     var fff = { 'font-size': '16px', 'text-anchor': 'start', 'font-family': body_font };
     paper.text(800, 100, "A day by day overview of the productions of the\nWorld Shakespeare Festival. Watch the animation\nover the course of the festival, or manually pick\nthe date to see what productions were on where.").attr(fff);
     paper.text(1180, 166, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
