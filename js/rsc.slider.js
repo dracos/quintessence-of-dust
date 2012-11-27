@@ -8,13 +8,16 @@ var animation_time = 500,
     running = 0;
 
 function run() {
-    $(this).addClass('active');
     if (running) {
-        return;
+        return stop();
     }
+    $(this).find('i').attr('class', 'icon-pause');
     var arr = $('select#date option');
     var i = document.getElementById('date').selectedIndex,
         l = arr.length;
+    if (i == l - 1) {
+        i = 0;
+    }
     running = 1;
     animation_time = 200;
     (function iterator() {
@@ -28,7 +31,7 @@ function run() {
 }
 
 function stop() {
-    $('#btn-play').removeClass('active');
+    $('#btn-play').find('i').attr('class', 'icon-play');
     running = 0;
     animation_time = 500;
 }
@@ -36,7 +39,6 @@ function stop() {
 $(function(){
 
     $('#btn-play').click(run);
-    $('#btn-pause').click(stop);
 
     var selectOptions = (function(){
         var opts = [];
