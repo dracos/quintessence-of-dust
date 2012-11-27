@@ -7,7 +7,7 @@ var RSC = (function(RSC) {
 var maps = {
     'stratford': { x: 500, y: 20, w: 230, h: 230 },
     'london': { 'x': 420, 'y': 280, 'w': 750, 'h': 300 },
-    'uk': { x: 0, y: 0, w: 0.75*641, h: 0.75*794 },
+    'uk': { x: 0, y: 0, w: 481, h: 596 },
     'stratfordOnUK': { x: 300, y: 459, w: 4, h: 4 },
     'londonOnUK': { x: 352, y: 493, w: 10, h: 5 }
 };
@@ -17,7 +17,7 @@ $(function(){
     var paper = Raphael("map", 1180, 600);
 
     // UK Map
-    paper.image('i/gb-watercolour.png', maps.uk.x, maps.uk.y, maps.uk.w, maps.uk.h);
+    paper.image('i/gb-watercolour.s.png', maps.uk.x, maps.uk.y, maps.uk.w, maps.uk.h);
     RSC.Rect(paper, maps.uk, 0).attr({ 'stroke': 'none' }).glow({ color: 'white', opacity: 1 });
     //paper.text(880, 32, "World Shakespeare\nFestival Timeline").attr({ 'font-weight': 'bold', 'font-family': 'Baskerville', 'font-size': '32px', 'text-anchor': 'start' });
     var font = 'Optima, "Zapf Humanist", "MgOpen Cosmetica", Candara, Myriad, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Frutiger, "Trebuchet MS", sans-serif';
