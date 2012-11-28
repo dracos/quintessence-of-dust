@@ -55,9 +55,8 @@ RSC.Clock = function(paper, x, y, r, segs) {
 RSC.Clock.prototype.set_date = function(date, last_date, time, cb) {
     var clock = this;
     $.each(this.segs, function(i, seg) {
-        if ((date < seg.start || date > seg.end) && (last_date < seg.start || last_date > seg.end)) {
-            return;
-        }
+        if (date < seg.start && last_date < seg.start) { return; }
+        if (date > seg.end && last_date > seg.end) { return; }
         if (date < seg.start || date > seg.end) {
             var pos = date < seg.start ? seg.min : seg.max;
             seg.done.animate({ segment: [ clock.x, clock.y, 0, seg.min, pos ] }, time);
