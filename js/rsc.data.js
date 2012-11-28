@@ -6,9 +6,10 @@ var RSC = (function(RSC) {
 
 // Clock sizes
 RSC.Sizes = {
-    'big': 25,
-    'medium': 20,
-    'small': 15
+    'big': 28,
+    'medium': 25,
+    'small': 20,
+    'vsmall': 15
 };
 
 // Colours
@@ -61,31 +62,31 @@ RSC.Locations = {
 
     // Stratford
     'Royal Shakespeare Theatre': {
-        map: 'stratford', x:0.79, y:0.33, label_dir: 3, size: 'big',
+        map: 'stratford', x:0.79, y:0.33, label_dir: 3, size: 'medium',
         surrogate: { map: 'stratford', x:0.69, y:0.43 }
     },
-    'Courtyard Theatre': { map: 'stratford', x:0.10, y:0.89, label_dir: 3, size: 'medium' },
+    'Courtyard Theatre': { map: 'stratford', x:0.12, y:0.88, label_dir: 3, size: 'medium' },
     'Swan Theatre': {
-        map: 'stratford', x:0.73, y:0.62, label_dir: 0, size: 'medium',
+        map: 'stratford', x:0.73, y:0.62, label_dir: 0, size: 'small',
         surrogate: { map: 'stratford', x:0.63, y:0.52 }
     },
     'Swan Room': {
-        map: 'stratford', x:0.48, y:0.58, size: 'small',
+        map: 'stratford', x:0.48, y:0.58, size: 'vsmall',
         surrogate: { map: 'stratford', x:0.58, y:0.48 }
     },
     'PACCAR Room': {
-        map: 'stratford', x:0.54, y:0.28, label_dir: 2, size: 'small',
+        map: 'stratford', x:0.54, y:0.28, label_dir: 2, size: 'vsmall',
         surrogate: { map: 'stratford', x:0.64, y:0.38 }
     },
 
     // London
     'Roundhouse': { map: 'london', x:0.37, y: 0.067, size: 'big' },
     'Shakespeare\u2019s Globe': { map: 'london', x:0.58, y: 0.6, label_dir: 3, size: 'big' },
-    'National Theatre': { map: 'london', x:0.52, y: 0.617, label_dir: 0, size: 'big' },
-    'Almeida Theatre': { map: 'london', x:0.55, y: 0.117, size: 'medium' },
+    'National Theatre': { map: 'london', x:0.52, y: 0.617, label_dir: 0, size: 'medium' },
+    'Almeida Theatre': { map: 'london', x:0.55, y: 0.117, size: 'small' },
     'Barbican': { map: 'london', x:0.59, y: 0.425, label_dir: 3, size: 'medium' },
     'Riverside Studios': { map: 'london', x:0.08, y: 0.9, label_dir: 2, size: 'small' },
-    'Stratford Circus': { map: 'london', x:0.96, y: 0.067, size: 'small' },
+    'Stratford Circus': { map: 'london', x:0.96, y: 0.068, size: 'small' },
     'Noël Coward Theatre': { map: 'london', x:0.47, y: 0.567, size: 'medium' },
     'Royal Opera House': { map: 'london', x:0.485, y: 0.517, label_dir: 2, size: 'big' },
 
@@ -96,27 +97,27 @@ RSC.Locations = {
         surrogate: { map: 'uk', x:0.5, y:0.83 }
     },
     'National Eisteddfod of Wales,\nVale of Glamorgan': {
-        map: 'uk', x:0.28, y:0.86, size: 'big',
+        map: 'uk', x:0.27, y:0.86, size: 'medium',
         surrogate: { map: 'uk', x:0.495, y:0.825 }
     },
     'The Vaynol Estate, Gwynedd': { map: 'uk', x:0.45, y:0.67, label_dir: 2, size: 'medium' },
-    'United Counties Showground, Carmarthen': { map: 'uk', x:0.45, y:0.80, label_dir: 2, size: 'big' },
+    'United Counties Showground, Carmarthen': { map: 'uk', x:0.45, y:0.80, label_dir: 2, size: 'medium' },
 
     // Elsewhere
-    'Birmingham Repertory Theatre\nat the Old Rep Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2, size: 'medium' },
+    'Birmingham Repertory Theatre\nat the Old Rep Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2, size: 'small' },
     'Malthouse Estate Warehouse, Brighton': { map: 'uk', x:0.73, y:0.89, size: 'small' },
 
     'Newcastle (3 venues)': { map: 'uk', x:0.64, y: 0.5, transparent: true },
     'Northern Stage, Newcastle': {
-        map: 'uk', x: 0.73, y: 0.43, label_dir: 2, size: 'big',
+        map: 'uk', x: 0.73, y: 0.43, label_dir: 2, size: 'small',
         surrogate: { map: 'uk', x: 0.64, y: 0.5 }
     },
     'Theatre Royal, Newcastle': {
-        map: 'uk', x: 0.76, y: 0.485, label_dir: 1, size: 'medium',
+        map: 'uk', x: 0.76, y: 0.485, label_dir: 1, size: 'big',
         surrogate: { map: 'uk', x: 0.64, y: 0.5 }
     },
     'Sage Gateshead': {
-        map: 'uk', x: 0.75, y: 0.54, label_dir: 0, size: 'medium',
+        map: 'uk', x: 0.75, y: 0.54, label_dir: 0, size: 'big',
         surrogate: { map: 'uk', x: 0.64, y: 0.5 }
     },
 
