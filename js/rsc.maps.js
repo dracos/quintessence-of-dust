@@ -49,7 +49,7 @@ $(function(){
     });
     key = {
         162: [
-            [ '#cc0000', 'Shipwreck Trilogy \u2013 Twelfth Night,\nThe Comedy of Errors, The Tempest' ],
+            [ '#cc0000', 'What Country Friends Is This? \u2013 Twelfth Night,\nThe Comedy of Errors, The Tempest' ],
             [ '#990000', 'Much Ado About Nothing' ],
             [ '#660000', 'Julius Caesar' ],
         ],
