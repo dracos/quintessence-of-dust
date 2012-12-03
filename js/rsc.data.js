@@ -93,15 +93,15 @@ RSC.Locations = {
     // Wales
     'Vale of Glamorgan (2 venues)': { map: 'uk', x: 0.4975, y:0.8275, transparent: true, label_dir: 3 },
     'Hangar 858,\nVale of Glamorgan': {
-        map: 'uk', x:0.38, y:0.88, label_dir: 0, size: 'medium',
+        map: 'uk', x:0.38, y:0.88, label_dir: 0, size: 'small',
         surrogate: { map: 'uk', x:0.5, y:0.83 }
     },
     'National Eisteddfod of Wales,\nVale of Glamorgan': {
-        map: 'uk', x:0.27, y:0.86, size: 'medium',
+        map: 'uk', x:0.27, y:0.86, size: 'small',
         surrogate: { map: 'uk', x:0.495, y:0.825 }
     },
-    'The Vaynol Estate, Gwynedd': { map: 'uk', x:0.45, y:0.67, label_dir: 2, size: 'medium' },
-    'United Counties Showground, Carmarthen': { map: 'uk', x:0.45, y:0.80, label_dir: 2, size: 'medium' },
+    'The Vaynol Estate, Gwynedd': { map: 'uk', x:0.45, y:0.67, label_dir: 2, size: 'small' },
+    'United Counties Showground, Carmarthen': { map: 'uk', x:0.45, y:0.80, label_dir: 2, size: 'small' },
 
     // Elsewhere
     'Birmingham Repertory Theatre\nat the Old Rep Theatre': { map: 'uk', x:0.62, y:0.73, label_dir: 2, size: 'small' },
