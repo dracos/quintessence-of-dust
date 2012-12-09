@@ -7,7 +7,7 @@ var RSC = (function(RSC) {
 // Clock sizes
 RSC.Sizes = {
     'big': 28,
-    'medium': 25,
+    'medium': 24,
     'small': 20,
     'vsmall': 15
 };
@@ -63,20 +63,30 @@ RSC.Locations = {
     // Stratford
     'Royal Shakespeare Theatre': {
         map: 'stratford', x:0.79, y:0.33, label_dir: 3, size: 'medium',
-        surrogate: { map: 'stratford', x:0.69, y:0.43 }
+        surrogate: { x:0.69, y:0.43 }
+    },
+    'The Dell Open-Air Theatre': {
+        map: 'stratford', x:0.34, y:0.95, label_dir: 2, size: 'small'
     },
     'Courtyard Theatre': { map: 'stratford', x:0.12, y:0.88, label_dir: 3, size: 'medium' },
     'Swan Theatre': {
         map: 'stratford', x:0.73, y:0.62, label_dir: 0, size: 'small',
-        surrogate: { map: 'stratford', x:0.63, y:0.52 }
+        surrogate: { x:0.63, y:0.52 }
     },
     'Swan Room': {
         map: 'stratford', x:0.48, y:0.58, size: 'vsmall',
-        surrogate: { map: 'stratford', x:0.58, y:0.48 }
+        surrogate: { x:0.58, y:0.48 }
     },
     'PACCAR Room': {
         map: 'stratford', x:0.54, y:0.28, label_dir: 2, size: 'vsmall',
-        surrogate: { map: 'stratford', x:0.64, y:0.38 }
+        surrogate: { x:0.64, y:0.38 }
+    },
+    'RST Foyer': {
+        map: 'stratford', x:0.49, y:0.43, label_dir: 1, size: 'vsmall',
+        surrogate: { x:0.63, y:0.41 }
+    },
+    'Shakespeare Birthplace Trust': {
+        map: 'stratford', x:0.20, y:0.05, label_dir: 0, size: 'vsmall'
     },
 
     // London
@@ -89,16 +99,18 @@ RSC.Locations = {
     'Stratford Circus': { map: 'london', x:0.96, y: 0.068, size: 'small' },
     'Noël Coward Theatre': { map: 'london', x:0.47, y: 0.567, size: 'medium' },
     'Royal Opera House': { map: 'london', x:0.485, y: 0.517, label_dir: 2, size: 'big' },
+    'British Museum': { map: 'london', x:0.47, y: 0.43, label_dir: 2, size: 'small' },
+    'Tate Modern': { map: 'london', x:0.565, y:0.6, label_dir:0, size: 'small' },
 
     // Wales
     'Vale of Glamorgan (2 venues)': { map: 'uk', x: 0.4975, y:0.8275, transparent: true, label_dir: 3 },
     'Hangar 858,\nVale of Glamorgan': {
         map: 'uk', x:0.38, y:0.88, label_dir: 0, size: 'small',
-        surrogate: { map: 'uk', x:0.5, y:0.83 }
+        surrogate: { x:0.5, y:0.83 }
     },
     'National Eisteddfod of Wales,\nVale of Glamorgan': {
         map: 'uk', x:0.27, y:0.86, size: 'small',
-        surrogate: { map: 'uk', x:0.495, y:0.825 }
+        surrogate: { x:0.495, y:0.825 }
     },
     'The Vaynol Estate, Gwynedd': { map: 'uk', x:0.45, y:0.67, label_dir: 2, size: 'small' },
     'United Counties Showground, Carmarthen': { map: 'uk', x:0.45, y:0.80, label_dir: 2, size: 'small' },
@@ -110,29 +122,29 @@ RSC.Locations = {
     'Newcastle (3 venues)': { map: 'uk', x:0.64, y: 0.5, transparent: true },
     'Northern Stage, Newcastle': {
         map: 'uk', x: 0.73, y: 0.43, label_dir: 2, size: 'small',
-        surrogate: { map: 'uk', x: 0.64, y: 0.5 }
+        surrogate: { x: 0.64, y: 0.5 }
     },
     'Theatre Royal, Newcastle': {
         map: 'uk', x: 0.76, y: 0.485, label_dir: 1, size: 'big',
-        surrogate: { map: 'uk', x: 0.64, y: 0.5 }
+        surrogate: { x: 0.64, y: 0.5 }
     },
     'Sage Gateshead': {
         map: 'uk', x: 0.75, y: 0.54, label_dir: 0, size: 'big',
-        surrogate: { map: 'uk', x: 0.64, y: 0.5 }
+        surrogate: { x: 0.64, y: 0.5 }
     },
 
     'Edinburgh (3 venues)': { map: 'uk', x:0.525, y: 0.405, transparent: true },
     'Royal Highland Centre, Edinburgh': {
         map: 'uk', x:0.66, y: 0.28, label_dir: 1, size: 'medium',
-        surrogate: { map: 'uk', x:0.525, y: 0.405 }
+        surrogate: { x:0.525, y: 0.405 }
     },
     'Royal Lyceum Theatre, Edinburgh': {
         map: 'uk', x:0.75, y: 0.28, label_dir: 2, size: 'medium',
-        surrogate: { map: 'uk', x:0.53, y: 0.405 }
+        surrogate: { x:0.53, y: 0.405 }
     },
     'King\u2019s Theatre, Edinburgh': {
         map: 'uk', x:0.70, y: 0.36, label_dir: 3, size: 'big',
-        surrogate: { map: 'uk', x:0.53, y: 0.405 }
+        surrogate: { x:0.53, y: 0.405 }
     }
 };
 
@@ -144,8 +156,8 @@ RSC.Events = [
         { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-03-30', end: '2012-05-19', col: t.rsc1 }
     ],
     [
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-20', col: t.rsc },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-21', col: t.rsc }
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-25', col: t.rsc },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-25', col: t.rsc }
     ],
     [
         { title: 'Romeo and Juliet in Baghdad', location: 'Swan Theatre', start: '2012-04-26', end: '2012-05-05', col: t.iraqi },
@@ -161,6 +173,8 @@ RSC.Events = [
         { title: 'I, Cinna (The Poet)', location: 'Swan Theatre', start: '2012-07-06', end: '2012-07-06', col: t.timcrouch },
         { title: 'Richard III', location: 'Swan Theatre', start: '2012-07-09', end: '2012-07-24', col: t.rsc },
         { title: 'King John', location: 'Swan Theatre', start: '2012-07-12', end: '2012-07-27', col: t.rsc },
+        { title: 'Open Stages Showcase', location: 'Swan Theatre', start: '2012-07-15', end: '2012-07-15', col: t.rsc },
+        { title: 'Open Stages Showcase', location: 'Swan Theatre', start: '2012-07-21', end: '2012-07-21', col: t.rsc },
         { title: 'Henry V', location: 'Swan Theatre', start: '2012-07-24', end: '2012-07-24', col: t.education }
     ],
     { title: 'Troilus and Cressida', location: 'Swan Theatre', start: '2012-08-03', end: '2012-08-18', col: t.wooster },
@@ -171,8 +185,8 @@ RSC.Events = [
     { title: 'A Tender Thing', location: 'Swan Theatre', start: '2012-09-27', end: '2012-10-20', col: t.rsc },
 
     { title: 'Of All the People in All the World, Stan’s Café', location: 'PACCAR Room', start: '2012-04-14', end: '2012-07-21', col: t.stan },
-    // Living Walls?
     { title: 'Two Roses for Richard III', location: 'Courtyard Theatre', start: '2012-05-07', end: '2012-05-12', col: t.bufomecanica },
+    { title: 'Creative Dialogues', location: 'Swan Room', start: '2012-05-10', end: '2012-05-12', col: t.oilycart },
     { title: 'In A Pickle', location: 'Swan Room', start: '2012-05-23', end: '2012-06-17', col: t.oilycart },
     { title: 'The Adventure of the Missing Manuscript', location: 'Swan Room', start: '2012-07-21', end: '2012-09-02', col: t.fairytales },
     [
@@ -182,18 +196,34 @@ RSC.Events = [
     [
         { title: 'Twelfth Night', location: 'Royal Shakespeare Theatre', start: '2012-07-12', end: '2012-10-06', col: t.rsc1 },
         { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-07-13', end: '2012-10-07', col: t.rsc1 },
+        { title: 'Open Stages Showcase', location: 'Royal Shakespeare Theatre', start: '2012-07-15', end: '2012-07-15', col: t.rsc },
         { title: 'The Comedy of Errors', location: 'Royal Shakespeare Theatre', start: '2012-07-16', end: '2012-10-06', col: t.rsc1 },
+        { title: 'Open Stages Showcase', location: 'Royal Shakespeare Theatre', start: '2012-07-22', end: '2012-07-22', col: t.rsc },
         { title: "A Midsummer Night\u2019s Dream (As You Like It)", location: 'Royal Shakespeare Theatre', start: '2012-08-10', end: '2012-08-18', col: t.chekhov }
     ],
     { title: 'Pilot Night', location: 'Courtyard Theatre', start: '2012-07-12', end: '2012-07-12', col: t.pilot },
+    { title: 'Open Stages Showcase', location: 'Courtyard Theatre', start: '2012-07-13', end: '2012-07-15', col: t.pilot },
     { title: 'Much Ado About Nothing', location: 'Courtyard Theatre', start: '2012-07-26', end: '2012-09-15', col: t.rscMA },
     { title: 'Pericles', location: 'Courtyard Theatre', start: '2012-10-05', end: '2012-10-07', col: t.rsc },
+    [
+        { title: 'The Dell', location: 'The Dell Open-Air Theatre', start: '2012-06-09', end: '2012-08-26', col: t.rsc },
+        { title: 'Open Stages Showcase', location: 'The Dell Open-Air Theatre', start: '2012-07-15', end: '2012-07-15', col: t.rsc },
+        { title: 'Open Stages Showcase', location: 'The Dell Open-Air Theatre', start: '2012-07-22', end: '2012-07-22', col: t.rsc }
+    ],
+    { title: 'Shakespeare\u2019s Stories', location: 'Shakespeare Birthplace Trust', start: '2012-04-21', end: '2012-12-21', col: t.rsc },
 
     // London
+    { title: 'Worlds Together Education Conference', location: 'Tate Modern', start: '2012-09-06', end: '2012-09-08', col: t.rsc },
+    { title: 'Shakespeare \u2013 Staging the World', location: 'British Museum', start: '2012-07-19', end: '2012-11-25', col: t.rsc },
+    { title: 'Living Walls', location: 'RST Foyer', start: '2012-04-21', end: '2012-09-09', col: t.rsc },
     { title: 'Globe to Globe', location: 'Shakespeare\u2019s Globe', start: '2012-04-21', end: '2012-06-09', col: t.globe },
     { title: 'Falstaff', location: 'Royal Opera House', start: '2012-05-15', end: '2012-05-30', col: t.roh },
     { title: 'Two Roses for Richard III', location: 'Roundhouse', start: '2012-05-18', end: '2012-05-23', col: t.bufomecanica },
-    { title: 'Cymbeline', location: 'Barbican', start: '2012-05-29', end: '2012-06-02', col: t.ninagawa },
+    [
+        { title: 'Global Shakespeare Talks', location: 'Barbican', start: '2012-05-28', end: '2012-05-28', col: t.barbican },
+        { title: 'Shakespeare\u2019s Library', location: 'Barbican', start: '2012-05-29', end: '2012-05-30', col: t.barbican },
+        { title: 'Cymbeline', location: 'Barbican', start: '2012-05-29', end: '2012-06-02', col: t.ninagawa }
+    ],
     [
         { title: 'The Comedy of Errors', location: 'Roundhouse', start: '2012-06-01', end: '2012-07-04', col: t.rsc1 },
         { title: 'Twelfth Night', location: 'Roundhouse', start: '2012-06-05', end: '2012-07-05', col: t.rsc1 },
@@ -205,6 +235,7 @@ RSC.Events = [
     { title: 'Romeo and Juliet in Baghdad', location: 'Riverside Studios', start: '2012-06-28', end: '2012-06-30', col: t.iraqi },
     { title: 'Macbeth : Leila and Ben \u2013 A Bloody History', location: 'Riverside Studios', start: '2012-07-04', end: '2012-07-07', col: t.apa },
     [
+        { title: 'The Making of Timon', location: 'National Theatre', start: '2012-07-10', end:  '2012-10-21', col: t.nt },
         { title: 'Timon of Athens', location: 'National Theatre', start: '2012-07-10', end:  '2012-09-09', col: t.nt },
         { title: 'Cesario', location: 'National Theatre', start: '2012-08-22', end: '2012-08-25', col: t.education }
     ],
@@ -215,7 +246,6 @@ RSC.Events = [
     { title: 'Troilus and Cressida', location: 'Riverside Studios', start: '2012-08-23', end: '2012-09-08', col: t.wooster },
     { title: 'King Lear', location: 'Almeida Theatre', start: '2012-08-31', end: '2012-11-03', col: t.almeida },
     { title: 'Forests', location: 'Barbican', start: '2012-11-06', end: '2012-11-10', col: t.rep },
-    // Shakespeare - Staging the World
 
     // Brighton
     { title: 'The Rest is Silence', location: 'Malthouse Estate Warehouse, Brighton', start: '2012-05-02', end: '2012-06-08', col: t.dreamthinkspeak },
@@ -226,7 +256,10 @@ RSC.Events = [
         { title: 'In A Pickle', location: 'Northern Stage, Newcastle', start: '2012-06-27', end: '2012-06-30', col: t.oilycart }
     ],
     { title: 'West Side Story', location: 'Sage Gateshead', start: '2012-07-04', end: '2012-07-07', col: t.sage },
-    { title: 'Macbeth : Leila and Ben \u2013 A Bloody History', location: 'Northern Stage, Newcastle', start: '2012-07-12', end: '2012-07-14', col: t.apa },
+    [
+        { title: 'Macbeth : Leila and Ben \u2013 A Bloody History', location: 'Northern Stage, Newcastle', start: '2012-07-12', end: '2012-07-14', col: t.apa },
+        { title: 'Remaking Shakespeare Conference', location: 'Northern Stage, Newcastle', start: '2012-07-14', end: '2012-07-14', col: t.apa }
+    ],
     { title: 'Julius Caesar', location: 'Theatre Royal, Newcastle', start: '2012-07-19', end: '2012-07-28', col: t.rscJC },
 
     // Edinburgh
