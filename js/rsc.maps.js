@@ -12,6 +12,14 @@ var maps = {
     'londonOnUK': { x: 352, y: 493, w: 10, h: 5 }
 };
 
+Raphael.fn.arrow = function (x1, y1, x2, y2, size) {
+    var angle = Math.atan2(x1-x2,y2-y1);
+        angle = (angle / (2 * Math.PI)) * 360;
+    var arrowPath = this.path("M" + x2 + " " + y2 + " L" + (x2 - size) + " " + (y2 - size) + " L" + (x2 - size) + " " + (y2 + size) + " L" + x2 + " " + y2 ).attr("fill","black").rotate((90+angle),x2,y2);
+    var linePath = this.path("M" + x1 + " " + y1 + " L" + x2 + " " + y2).attr({'stroke-width':2});;
+    return this.set(linePath,arrowPath);
+};
+
 $(function(){
 
     var sl_h = $('#map').offset().top;
@@ -114,7 +122,6 @@ $(function(){
 
     // Locations
     $.each(RSC.Locations, function(i, v) {
-        if (i.substring(0,1) == '.') { return; }
         var map = maps[v.map],
             cx = map.x + v.x * map.w,
             cy = map.y + v.y * map.h,
@@ -133,6 +140,9 @@ $(function(){
                 real_cy = map.y + v.surrogate.y * map.h;
             paper.path("M" + cx + "," + cy + " " + real_cx + "," + real_cy);
             paper.circle(real_cx, real_cy, 2).attr({ fill: "black", stroke: "none" });
+        }
+        if (v.arrow) {
+            paper.arrow(cx, cy, v.arrow.x, v.arrow.y, 3);
         }
     });
 
