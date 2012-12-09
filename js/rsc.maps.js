@@ -28,18 +28,24 @@ $(function(){
     var body_font = 'Helvetica, Arial, sans-serif';
     paper.text(800, 16, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': font, 'font-size': '32px', 'text-anchor': 'start' });
     var fff = { 'font-size': '16px', 'text-anchor': 'start', 'font-family': body_font };
-    paper.text(800, 100, "A day by day overview of the productions of the\nWorld Shakespeare Festival. Watch the animation\nover the course of the festival, or manually pick\nthe date to see what productions were on where.").attr(fff);
-    paper.text(1180, 166, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
+    paper.text(800, 90, "A day by day overview of the events of the World\nShakespeare Festival. Watch the animation over the\ncourse of the festival, or manually pick the date to see\nwhat productions were on where.").attr(fff);
+    paper.text(1180, 120, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
 
+    // Exhibitions & Events
+    // International Collaborations
+    // Professional-Amateur Collaborations
+    // Young People's Theatre
     var key = [
-        [ 800, 162, '#ff0000', 'RSC', 'A Tender Thing, Rape of Lucrece,\nPericles, King John, Richard III' ],
-        [ 800, 182, '#0000ff', 'UK', 'King Lear, Desdemona, Missing Manuscript,\nTimon of Athens, Coriolan/us, Pilot Night,\nOtello, Falstaff, The Dark Side of Love,\nWest Side Story, Stan\u2019s Cafe, I Cinna (The Poet)' ],
+        [ 800, 152, '#ff0000', 'RSC Productions', 'A Tender Thing, Rape of Lucrece, King\nJohn, Richard III, I Cinna (The Poet)' ],
+        [ 800, 170, '#0000ff', 'UK Collaborations', 'King Lear, Timon of Athens, Coriolan/us, Pilot\nNight, Otello, Falstaff, West Side Story' ],
 
-        [ 800, 202, '#6633ff', 'International', 'Globe to Globe, Cymbeline,\nA Soldier in Every Son, 2008:Macbeth' ],
-        [ 800, 222, '#ffcc00', 'Young people', 'Young Company Building Takeover, Henry V,\nPoor Trash of Venice, Cesario' ]
+        [ 800, 188, '#6633ff', 'International Collaborations and Commissions', 'Globe to Globe, Cymbeline,\nA Soldier in Every Son, 2008:Macbeth, Desdemona' ],
+        [ 800, 206, '#cc6600', 'Young People\u2019s Theatre', 'Young Company Building Takeover, Henry V,\nPoor Trash of Venice, Cesario, The Dark Side of Love' ],
+        [ 800, 224, '#009900', 'Exhibitions & Events', '' ],
+        [ 800, 242, '#ffcc00', 'Professional-Amateur Collaborations', 'Open Stages Showcase,\nPericles, The Dell' ]
     ];
     $.each(key, function(i, k) {
-        paper.text(k[0]+46, k[1]+8, k[3]).attr(fff).attr({ 'font-size': '12px' });
+        paper.text(k[0]+50, k[1]+8, k[3]).attr(fff).attr({ 'font-size': '12px' });
         var r = paper.rect(k[0], k[1], 15, 15).attr({ fill: k[2], stroke: 'none' });
         if (k[4]) {
             var p = paper.popup(0, 0, k[4]).update(k[0]+7, k[1], 2).hide()
@@ -48,23 +54,25 @@ $(function(){
         }
     });
     key = {
-        162: [
+        152: [
             [ '#cc0000', 'What Country Friends Is This? \u2013 Twelfth Night,\nThe Comedy of Errors, The Tempest' ],
             [ '#990000', 'Much Ado About Nothing' ],
-            [ '#660000', 'Julius Caesar' ],
+            [ '#660000', 'Julius Caesar' ]
         ],
-        182: [
-            [ '#0000dd', 'In A Pickle' ],
+        170: [
             [ '#0000bb', 'Y Storm (The Tempest)' ],
-            [ '#000099', 'Forests' ],
-            [ '#000077', 'The Rest Is Silence' ],
+            [ '#000077', 'The Rest Is Silence' ]
         ],
-        202: [
-            [ '#6633dd', 'Macbeth : Leila and Ben \u2013 A Bloody History' ],
-            [ '#6633bb', 'Two Roses for Richard III' ],
-            [ '#663399', 'A Midsummer Night\u2019s Dream (As You Like It)' ],
-            [ '#663377', 'Romeo and Juliet in Baghdad' ],
-            [ '#663355', 'Troilus and Cressida' ]
+        188: [
+            [ '#490cff', 'Macbeth : Leila and Ben \u2013 A Bloody History' ],
+            [ '#3900e4', 'Two Roses for Richard III' ],
+            [ '#2f00bc', 'A Midsummer Night\u2019s Dream (As You Like It)' ],
+            [ '#250095', 'Romeo and Juliet in Baghdad' ],
+            [ '#1b006e', 'Troilus and Cressida' ],
+            [ '#120047', 'Forests' ]
+        ],
+        206: [
+            [ '#993300', 'In A Pickle' ]
         ]
     };
     $.each(key, function(h, shades) {
@@ -79,7 +87,7 @@ $(function(){
             w += 5;
         });
     });
-    paper.text(800, 250, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
+    paper.text(1000, 214, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
 
     var zoomed = {
         'stroke': 'black',
