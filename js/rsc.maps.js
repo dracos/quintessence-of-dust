@@ -29,7 +29,7 @@ $(function(){
     paper.text(800, 16, "Quintessence of Dust").attr({ 'font-weight': 'bold', 'font-family': font, 'font-size': '32px', 'text-anchor': 'start' });
     var fff = { 'font-size': '16px', 'text-anchor': 'start', 'font-family': body_font };
     paper.text(800, 90, "A day by day overview of the events of the World\nShakespeare Festival. Watch the animation over the\ncourse of the festival, or manually pick the date to see\nwhat productions were on where.").attr(fff);
-    paper.text(1180, 120, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
+    paper.text(1180, 119, "More information").attr(fff).attr({ href: 'about.html', fill: '#0000ff', 'text-anchor': 'end' }).hover(function() { this.attr({ fill: '#ff0000' }); }, function() { this.attr({ fill: '#0000ff' }); });
 
     // Exhibitions & Events
     // International Collaborations
@@ -41,7 +41,7 @@ $(function(){
 
         [ 800, 188, '#6633ff', 'International Collaborations and Commissions', 'Globe to Globe, Cymbeline,\nA Soldier in Every Son, 2008:Macbeth, Desdemona' ],
         [ 800, 206, '#cc6600', 'Young People\u2019s Theatre', 'Young Company Building Takeover, Henry V,\nPoor Trash of Venice, Cesario, The Dark Side of Love' ],
-        [ 800, 224, '#009900', 'Exhibitions & Events', '' ],
+        [ 800, 224, '#009900', 'Exhibitions and Events', '' ],
         [ 800, 242, '#ffcc00', 'Professional-Amateur Collaborations', 'Open Stages Showcase,\nPericles, The Dell' ]
     ];
     $.each(key, function(i, k) {
@@ -55,9 +55,9 @@ $(function(){
     });
     key = {
         152: [
-            [ '#cc0000', 'What Country Friends Is This? \u2013 Twelfth Night,\nThe Comedy of Errors, The Tempest' ],
-            [ '#990000', 'Much Ado About Nothing' ],
-            [ '#660000', 'Julius Caesar' ]
+            [ '#d80000', 'What Country Friends Is This? \u2013 Twelfth Night,\nThe Comedy of Errors, The Tempest' ],
+            [ '#b10000', 'Much Ado About Nothing' ],
+            [ '#890000', 'Julius Caesar' ]
         ],
         170: [
             [ '#0000bb', 'Y Storm (The Tempest)' ],
@@ -72,7 +72,7 @@ $(function(){
             [ '#120047', 'Forests' ]
         ],
         206: [
-            [ '#993300', 'In A Pickle' ]
+            [ '#a55200', 'In A Pickle' ]
         ]
     };
     $.each(key, function(h, shades) {
@@ -87,7 +87,7 @@ $(function(){
             w += 5;
         });
     });
-    paper.text(1000, 214, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
+    paper.text(1050, 214, "(tours in different shades)").attr(fff).attr({ 'font-size': '10px' });
 
     var zoomed = {
         'stroke': 'black',

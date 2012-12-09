@@ -21,9 +21,9 @@ var t = {
     rsc: '#ff0000', // Tender Thing, Rape of Lucrece, King John, Richard III
     timcrouch: '#ff0000', // I Cinna (The Poet)
     // RSC, tour
-    rsc1: '#cc0000', // Shipwreck Trilogy - Stratford / Roundhouse / Stratford
-    rscJC: '#660000', // Julius Caesar - Stratford / Newcastle / Coward
-    rscMA: '#990000', // Much Ado About Nothing - Stratford / Coward
+    rsc1: '#d80000', // Shipwreck Trilogy - Stratford / Roundhouse / Stratford
+    rscJC: '#890000', // Julius Caesar - Stratford / Newcastle / Coward
+    rscMA: '#b10000', // Much Ado About Nothing - Stratford / Coward
 
     // UK companies, no tour
     almeida: '#0000ff', // King Lear
@@ -51,7 +51,7 @@ var t = {
     rep: '#120047', // Forests - Rep / Barbican
 
     // Education
-    oilycart: '#993300', // In A Pickle - Swan / Stratford Circus / Newcastle
+    oilycart: '#a55200', // In A Pickle - Swan / Stratford Circus / Newcastle
     roundhouse: '#cc6600', // The Dark Side of Love
     young: '#cc6600' // Young Company (takeover, Henry V), Poor Trash of Venice, Cesario
 };
