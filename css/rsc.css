@@ -78,6 +78,8 @@ blockquote .img {
     color: white;
 }
 
+.ui-state-default, .ui-widget-content .ui-state-default { border: 1px solid #666666; }
+
 /* Map */
 
 #map {
