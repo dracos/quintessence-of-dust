@@ -67,8 +67,8 @@ RSC.Locations = {
         surrogate: { x:0.69, y:0.43 }
     },
     'The Dell Open-Air Theatre': {
-        arrow: { x: 570, y: 250-2 },
-        map: 'stratford', x:0.34, y:0.95, label_dir: 2, size: 'small'
+        arrow: { x: 566, y: 252 },
+        map: 'stratford', x:0.33, y:0.95, label_dir: 2, size: 'small'
     },
     'Courtyard Theatre': { map: 'stratford', x:0.12, y:0.88, label_dir: 3, size: 'medium' },
     'Swan Theatre': {
@@ -88,7 +88,7 @@ RSC.Locations = {
         surrogate: { x:0.63, y:0.41 }
     },
     'Shakespeare Birthplace Trust': {
-        arrow: { x: 540, y: 20+2 },
+        arrow: { x: 536, y: 18 },
         map: 'stratford', x:0.20, y:0.05, label_dir: 0, size: 'vsmall'
     },
 
