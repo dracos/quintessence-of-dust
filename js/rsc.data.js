@@ -159,8 +159,8 @@ RSC.Events = [
         { title: 'The Tempest', location: 'Royal Shakespeare Theatre', start: '2012-03-30', end: '2012-05-19', col: t.rsc1 }
     ],
     [
-        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-25', col: t.rsc },
-        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-25', col: t.rsc }
+        { title: 'Richard III', location: 'Swan Theatre', start: '2012-03-22', end: '2012-04-20', col: t.rsc },
+        { title: 'King John', location: 'Swan Theatre', start: '2012-04-06', end: '2012-04-21', col: t.rsc }
     ],
     [
         { title: 'Romeo and Juliet in Baghdad', location: 'Swan Theatre', start: '2012-04-26', end: '2012-05-05', col: t.iraqi },
